@@ -1,0 +1,12 @@
+<table cellpadding="10px" id="userUbications">
+<% for u in @positions %>
+	<tr>
+		<td><b><%=  u.titulo %></b></td>
+		<td><%= u.direccion %>,<%=  u.ciudad %>,<%=  u.pais %></td>
+		<td><%= u.coordenadas%></td>
+		<td><%= link_to_remote "Borrar", :update => "status", :url => { :controller => "positions", :action => "destroy", :id => u.id }, :confirm => "Realmente quiere eliminar esta ubicacion?" %></td>
+		<td><%= link_to_remote "Editar", :update => "ubicationForm", :url => { :controller => "positions", :action => "edit", :id => u.id } %></td>
+		<td></td>
+	</tr>
+<% end %>
+</table>

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn_mediafranca/!svn/ver/132/app/models
+END
+circumscription.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn_mediafranca/!svn/ver/138/app/models/circumscription.rb
+END
+topic.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn_mediafranca/!svn/ver/138/app/models/topic.rb
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn_mediafranca/!svn/ver/138/app/models/user.rb
+END
+publication_positions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn_mediafranca/!svn/ver/138/app/models/publication_positions.rb
+END
+region.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn_mediafranca/!svn/ver/138/app/models/region.rb
+END
+rating.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn_mediafranca/!svn/ver/138/app/models/rating.rb
+END
+district.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn_mediafranca/!svn/ver/138/app/models/district.rb
+END
+multimedia.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn_mediafranca/!svn/ver/138/app/models/multimedia.rb
+END
+publication_topics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn_mediafranca/!svn/ver/138/app/models/publication_topics.rb
+END
+representative.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn_mediafranca/!svn/ver/138/app/models/representative.rb
+END
+position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn_mediafranca/!svn/ver/138/app/models/position.rb
+END
+relevance.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn_mediafranca/!svn/ver/138/app/models/relevance.rb
+END
+citizen.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn_mediafranca/!svn/ver/138/app/models/citizen.rb
+END
+city.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn_mediafranca/!svn/ver/138/app/models/city.rb
+END
+publication.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn_mediafranca/!svn/ver/138/app/models/publication.rb
+END
+conversation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn_mediafranca/!svn/ver/138/app/models/conversation.rb
+END
+senator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn_mediafranca/!svn/ver/138/app/models/senator.rb
+END

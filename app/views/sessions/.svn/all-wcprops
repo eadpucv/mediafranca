@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn_mediafranca/!svn/ver/132/app/views/sessions
+END
+showForm.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn_mediafranca/!svn/ver/79/app/views/sessions/showForm.rjs
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn_mediafranca/!svn/ver/30/app/views/sessions/new.html.erb
+END
+create.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn_mediafranca/!svn/ver/132/app/views/sessions/create.xml.builder
+END
+_loginSuccess.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn_mediafranca/!svn/ver/127/app/views/sessions/_loginSuccess.html.erb
+END
+hideForm.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn_mediafranca/!svn/ver/80/app/views/sessions/hideForm.rjs
+END
+_loginError.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn_mediafranca/!svn/ver/103/app/views/sessions/_loginError.html.erb
+END
+create.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn_mediafranca/!svn/ver/107/app/views/sessions/create.html.erb
+END

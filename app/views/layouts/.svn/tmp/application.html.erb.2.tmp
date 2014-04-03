@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//ES"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+	<head>
+		<title>MediaFranca v1</title>
+		<%= stylesheet_link_tag 'screenstyle' %>
+		<%= stylesheet_link_tag 'prototip' %>
+
+		<%= javascript_include_tag "sample-points" %>
+		<%= javascript_include_tag "prototype" %>
+		<%= javascript_include_tag "scriptaculous" %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "prototip" %>
+		<%= javascript_include_tag "tips" %>
+		
+		<script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div id="headerWrapper" class="cf">
+  			<div id="header" class="cf">
+  				<div id="logo"><a href="#"><%= image_tag "logoMF.png", :class =>"logo" %></a></div><!-- end logo -->
+  				<!-- <span id="logoDescription" class="sans medium bold greyMedium">| Plataforma para la interacci—n c’vica</span> end logodescription -->
+  				<div id="menuTop"><span id="search"><input type="text" alt="buscador" class="search"/><input class="btnSearch" type="submit" value="" alt="boton buscador"/></span><!-- end search -->
+	  				<% 	if current_user %> 
+						<span id="loggin"><%= t(:currentUser) %> <b><%= current_user.username %></b> &nbsp; | &nbsp; <%=  link_to "Actualizar Perfil", :controller => "citizens", :action =>"edit", :id => current_user.id %> &nbsp; | &nbsp; <%=  link_to "Salir", logout_url %> &nbsp; </span>
+					<% else %>
+						<span id="loggin"><%= link_to t(:signup), {:controller=>"citizens", :action=>"new"}, :class =>"bold noColor" %> &nbsp; <%= link_to "Ingresar", login_url, :class=>"btnLoggin", :title=>"Accede a tu cuenta desde aquí" %> </span>
+					<% end %>
+  				</div><!-- end menuTop -->
+  				<div id="mainMenu"></div><!-- end mainMenu -->
+  			</div><!-- end header	 -->
+  		</div><!-- end headerWrapper -->
+  				  				  			
+		<div id="contentTitle">
+			<%= yield :contentTitle %>
+		</div><!-- end contentTitle  --> 
+		<div id="notificacion"></div>
+		<% if (controller_name == "home") && (action_name == "indexMap") %>
+			<div id="homeTopPost" class="cf">
+				<%= yield :homeTopPost %>					
+			</div><!-- end content  --> 
+			<div id="map" class="full noMargin noPaddign">
+				<%= yield :map %>
+			</div>
+		<% else %>
+			<div id="containerWrapper" class="
+				<% if (controller_name == "conversations") %> listBox <% end %> cf <% if (controller_name == "publications") %> containerPublication <% else %>containerNormal <% end %>" >
+				<div id="container" class="cf" >
+					<div id="content" class="<% if action_name == "indexList" %> contentList <% else %> cf <% end %>">
+						<%= yield :content %>					
+					</div>
+					<div id="sidebar" class="<% if action_name == "indexList" %> hl <% else %> <% end %>" >
+						<%= yield :sidebar %>
+					</div>
+		  		</div><!-- end container -->
+			</div><!-- end containerWrapper -->
+		<% end %>
+       	<div id="footer">
+  			<ul class="footerMenu">
+  					<li><a href="#">Acerca de MediaFranca</a></li>
+  					<li> | </li>
+  					<li><a href="#">Términos y condiciones</a></li>
+  					<li> | </li>
+  					<li><a href="#">¿Necesitas ayuda?</a></li>
+  					<li> | </li>
+  					<li><a href="#">Contacto</a></li>
+  					<li> | </li>
+  					<li class="sans">MediaFranca.cl 2009-2010</li>
+  					<li><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="cc" alt="Attribution-NonCommercial-ShareAlike" title="Attribution-NonCommercial-ShareAlike" src="images/cc.png"/></a></li>
+  			</ul>
+  			<p class="sans"></p>
+  		</div><!-- end footer -->
+	</body>
+</html>
+

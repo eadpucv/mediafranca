@@ -1,0 +1,2 @@
+module RelevanceHelper
+end

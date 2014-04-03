@@ -1,0 +1,15 @@
+<div id="mapConversation" class="sidebarBoxes">
+	<%= @map.div(:width => "100%", :height => 200) %>
+</div><!-- end mapConversation -->
+<div id="relatedTopics" class="sidebarBoxes">
+	<span id="boxTitule" class="iconTopics"><h5>Temas Relacionados</h5></span>
+	<ul class="medium">
+	<% for t in @tags %>
+		<% 
+			@sql = "SELECT COUNT(*) AS Filas, topics.title as title FROM topics, publication_topics WHERE publication_topics.topic_id = topics.id AND topics.title = '#{t.title}' GROUP BY title ORDER BY title"		
+			@tags = Topic.find_by_sql(@sql)
+		%>
+		<%= link_to "<li><p>#{t.title}<span class='popIndicator right small sans'>#{@tags[0].Filas}</span></p></li>", :controller => :home, :action=>:indexList, :text=>t.title, :tipo=>"search" %>
+	<% end %>	
+	</ul>
+</div><!-- end relatedTopics -->

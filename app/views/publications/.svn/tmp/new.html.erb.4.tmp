@@ -1,0 +1,96 @@
+ <% content_for :contentTitle do %>
+	<%= GMap.header %>
+	<%= @map.to_html %>
+	<div id="titleConversation">
+		<h2>Comienza una nueva conversación</h2> 
+	</div><!-- end titleConversation -->
+<% end %>
+
+<% content_for :content do %>
+
+<div id="notification"><span class="closeNotificaion"><a href="#" title="cerar">cerrar</a></span><p class="medium">Al precionar <em>publicar</em> se mostraran <b>conversaciones similares</b> las que podras <b>conectar</b> con tu publicación, por esto es necesario <b>añadir etiquetas</b>.</p>
+</div><!-- end notification -->
+	<div id="publishBox" class="cf">
+		<h3>Escribe un texto para empezar</h3>
+			<%= form_remote_tag(:update => "conectPublicatio", :url => {:controller => :publications, :action => :create}) %> 
+			<input type="hidden" name="publication[citizen_id]" value="<%= current_user._id %>"
+
+			<%=  text_area(:publication, :title, :cols => 55, :rows => 2) %>
+			<ul id="newTopics" class=""></ul>
+			<ul id="newUbications" class=""></ul>
+			<div id="addMediaTools" class="cf">
+
+			<input class="btn " type="submit" value="Publicar">
+			</form>
+			
+				<%= form_remote_tag(:update => "lista", :url => {:controller => :topics, :action => :addTopicToPublication}, :html => {:class => "left" }) %> 
+					<input id="topic_title" class="add" type="text" size="15" name="topic_search" value="Añadir etiquetas" autocomplete="off" onfocus="blanc('topic_title')"  onblur="blanc('topic_title','Añadir Etiqueta')"><%= submit_tag 'Añadir', :class => "btnAdd" %>
+				</form>
+				<%= observe_field 'topic_title',
+					:url => { :controller => :topics, :action => :topicSearch },
+					:frequency => 0.5,
+					:update => :resultLiveSearchTopics,
+					:with => "topic_search" 
+				%>
+				<ul id="addMedia" class="sans xsmall">
+					<li><a class="addPhoto" href="#" title="Foto">Foto</a></li>
+					<li><a class="addVideo" href="#" title="Video">Video</a></li>
+					<li><a class="addAudio" href="#" title="Audio">Audio</a></li>
+					<li><a class="addPresentation" href="#" title="Presentación">Presentación</a></li>
+					<li><a class="addEvent" href="#" title="Evento">Evento</a></li>
+					<li><a class="addPolls" href="#" title="Encuesta">Encuesta</a></li>
+					<li><a class="addSynchat" href="#" title="Chat Sincronizado">Sync Chat</a></li>
+					<li><a class="addMapPoint" href="#" title="Ubicación">Ubicación</a></li>
+					<li><a class="addLink" href="#" title="Enlace">Enlace</a></li>
+				</ul>
+				<div id="MediaBox"></div>
+			</div><!-- end addMediaTools -->
+			<div id="resultLiveSearchTopics"></div>			
+			
+			
+	</div><!-- end publishBox -->
+	<div id="previewPublication" class="medium">&darr; Añade elementos a tu publicación y seran previsualizados aquí</div><!-- end previewPublication -->
+	<div id="conectPublicatio" class="medium">&darr; Las siguientes conversaciones se parecen a tu publicación <b><em>¡Conectalas!</em></b></div><!-- end conectPublicatio -->
+	<div id="contentList">
+	<div class="conversation cf">
+		<ul id="indicator" class="sans xsmall greyMedium left">
+			<li><a class="iconPost">12</a></li>
+		</ul>
+		<h4 class="noMargin"><a href="#">título<span class="moreInfo small sans"> Previsualizar</span></a> <a href="#" class="btn connect">Conectar</a>
+</h4>
+		<ul id="tag" class="small">
+		</ul>
+
+		<span id="timer" class="sans xsmall greyMedium"><b>1 minutos atrás</b></span>
+		<span class="right sans xsmall"><ul id="relevance"><a href="#" class="iconRelevanceUp"><li>23</li></a><a href="#" class="iconRelevanceDown"><li>1333</li></a></ul></span>
+		</div>
+	<a href="#" id="noConnect" class="btn">No conectar, Crear una nueva conversación</a>
+	</div> <!-- end ContentsList  -->
+<% end %>
+
+<% content_for :sidebar do %>
+	<div id="mapNewPublication" class="sidebarBoxes cf">
+		<span id="boxTitule" class="iconMap"><h5>Añade una ubicación a tu publicación</h5></span>
+		<div id="conversationMap" >
+	        <%= @map.div(:width => "100%", :height => 200) %>
+	        <%= form_remote_tag(:url => {:action => :addPointToMap}, :html => {:class => "noMargin addUbiquity" }) %> 
+			<input type="text" value="Ej.: Villanelo alto, Viña del mar" id="addAdress" name="dir" class="add">
+			<input id="btnAddAdress" type="submit" value="Ubicar" class="btnAdd" title="Ubicar">
+			</form>
+		</div>
+		<span id="boxTitule" class="iconMap"><h5>Ubicación añadidas</h5></span>
+		<div id="adressAdded" class="sidebarBoxes cf">
+
+		</div>
+	</div><!-- end mapNewPublication -->
+	
+	<div id="tipSidebar">
+		<b>¿Porqué es importante conectar las publicaciones con conversaciones?</b>
+		<p>Basicamente porque se podria estar hablando sobre <em>el mismo asunto</em> en distintas conversaciones. Y si juntamos todo <em>en una sola conversación</em> esta <em>será más relevante y su visibilidad mayor</em>.</p>
+		<b>¿Y si no hay nada para conectar?</b>
+		<p>Estarás abriendo una nueva conversación la cual crecerá cuando otros escriban sobre ella.</p>
+	</div><!-- end tipSidebar -->
+		<% end %>
+
+<% content_for :contentTitle do %>
+<% end %>

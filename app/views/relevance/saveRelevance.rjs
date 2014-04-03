@@ -1,0 +1,1 @@
+page.replace_html "relevance_#{@p_id}","<li><a href='#' class ='upVotingOn'>#{@n}</a></li>"

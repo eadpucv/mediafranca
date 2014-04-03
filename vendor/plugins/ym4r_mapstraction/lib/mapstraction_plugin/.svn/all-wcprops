@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn_mediafranca/!svn/ver/60/vendor/plugins/ym4r_mapstraction/lib/mapstraction_plugin
+END
+helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn_mediafranca/!svn/ver/60/vendor/plugins/ym4r_mapstraction/lib/mapstraction_plugin/helper.rb
+END
+overlay.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn_mediafranca/!svn/ver/60/vendor/plugins/ym4r_mapstraction/lib/mapstraction_plugin/overlay.rb
+END
+mapstraction.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn_mediafranca/!svn/ver/60/vendor/plugins/ym4r_mapstraction/lib/mapstraction_plugin/mapstraction.rb
+END
+routing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn_mediafranca/!svn/ver/60/vendor/plugins/ym4r_mapstraction/lib/mapstraction_plugin/routing.rb
+END
+mapping.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn_mediafranca/!svn/ver/60/vendor/plugins/ym4r_mapstraction/lib/mapstraction_plugin/mapping.rb
+END

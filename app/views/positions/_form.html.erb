@@ -1,0 +1,21 @@
+<%= hidden_field_tag 'position[citizen_id]', current_user.id %>
+<table>
+	<tr>
+		<td>Nombre</td>
+		<td><%= text_field_tag 'position[titulo]', @position.titulo %></td>
+	</tr>
+
+	<tr>
+		<td>Direccion</td>
+		<td><%= text_field_tag 'position[direccion]', @position.direccion %></td>
+	</tr>
+	<tr>
+		<td>Ciudad</td>
+		<td><%= text_field_tag 'position[ciudad]', @position.ciudad %></td>
+	</tr>
+	<tr>
+		<td>Pais</td>
+		<td><%= text_field_tag 'position[pais]',@position.pais %></td>
+	</tr>
+</table>
+<input type="submit" name="submit" value="Entrar" />

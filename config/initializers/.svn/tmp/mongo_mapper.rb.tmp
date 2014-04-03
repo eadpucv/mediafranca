@@ -1,0 +1,10 @@
+<<<<<<< .mine
+MongoMapper.database = "mediafranca-#{Rails.env}"
+#MongoMapper.connection = Mongo::Connection.new('flame.mongohq.com', 27074, { :logger => Rails.logger })
+#MongoMapper.database = 'mediafranca'
+#MongoMapper.database.authenticate('mediafranca', '.mfranca.')=======
+#MongoMapper.database = "mediafranca-#{Rails.env}"
+MongoMapper.connection = Mongo::Connection.new('flame.mongohq.com', 27074, { :logger => Rails.logger })
+MongoMapper.database = 'mediafranca'
+MongoMapper.database.authenticate('mediafranca', '.mfranca.')
+>>>>>>> .r119

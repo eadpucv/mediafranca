@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn_mediafranca/!svn/ver/105/log
+END
+test.log
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn_mediafranca/!svn/ver/104/log/test.log
+END
+production.log
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn_mediafranca/!svn/ver/104/log/production.log
+END
+server.log
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn_mediafranca/!svn/ver/104/log/server.log
+END

@@ -1,0 +1,48 @@
+
+<div id="contentList" class="cf">
+
+<%= link_to_function "<h5>Fotografías</h5>" do |page| page.visual_effect(:toggle_blind, 'photoList', :duration => 0.5) end %> 
+<div id="photoList" class="cf" style="display:none;">
+	<% for img in @images %>
+	<ul>
+		<a href="#">
+			<li class="photoThumbnail">
+				<div class="clipout">
+				    <div class="clipin">
+				    	<%= image_tag img.url, :alt => "fotografía" %>
+				   	</div>
+			   	</div>
+			   	<p><a class="moreInfoIcon" href="#">Detalles</a></p>
+			</li>
+		</a>
+	</ul>
+	<% end %>
+	
+</div>
+
+<%= link_to_function "<h5>Video</h5>" do |page| page.visual_effect(:toggle_blind, 'videoList', :duration => 0.5) end %>
+<div id="videoList"  class="cf" style="display:none;">
+	<ul>
+		<li class="videoThumbnail">
+<object width="120" height="70" ><param name="allowfullscreen" value="true" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=7806936&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=f1f1f1&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=7806936&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=f1f1f1&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="115" height="70"></embed></object>
+		<p><a class="moreInfoIcon">Detalles</a></p>
+		</li>
+	</ul>
+</div>
+
+<%= link_to_function "<h5>Audio</h5>" do |page| page.visual_effect(:toggle_blind, 'audioList', :duration => 0.5) end %>
+<div id="audioList"  class="cf" style="display:none;">
+	<ul>
+		<li class="audioThumbnail">
+			<object height="81" width="100%"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F3453624&amp;show_comments=false&amp;auto_play=false&amp;color=535353"></param> <param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F3453624&amp;show_comments=false&amp;auto_play=false&amp;color=535353" type="application/x-shockwave-flash" width="100%"></embed> </object>
+		<p><a class="moreInfoIcon">Detalles</a></p>
+		</li>
+	</ul>
+</div>
+	
+<%= link_to_function "<h5>Presentacion</h5>" do |page| page.visual_effect(:toggle_blind, 'presentationList', :duration => 0.5) end %>
+<div id="presentationList"  class="cf" style="display:none;">
+a
+</div>	
+		  				
+</div> <!-- end MediatsList  -->

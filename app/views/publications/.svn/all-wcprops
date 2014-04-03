@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn_mediafranca/!svn/ver/134/app/views/publications
+END
+addMultimedia.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn_mediafranca/!svn/ver/138/app/views/publications/addMultimedia.rjs
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn_mediafranca/!svn/ver/138/app/views/publications/new.html.erb
+END
+savePoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn_mediafranca/!svn/ver/138/app/views/publications/savePoint.rjs
+END
+conversations4topics.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn_mediafranca/!svn/ver/138/app/views/publications/conversations4topics.xml.builder
+END
+create.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn_mediafranca/!svn/ver/129/app/views/publications/create.xml.builder
+END
+deletePoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn_mediafranca/!svn/ver/113/app/views/publications/deletePoint.rjs
+END
+searchPoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn_mediafranca/!svn/ver/136/app/views/publications/searchPoint.rjs
+END
+setNewPoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn_mediafranca/!svn/ver/115/app/views/publications/setNewPoint.rjs
+END
+create.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn_mediafranca/!svn/ver/138/app/views/publications/create.html.erb
+END

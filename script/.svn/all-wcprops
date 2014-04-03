@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn_mediafranca/!svn/ver/104/script
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn_mediafranca/!svn/ver/104/script/console
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn_mediafranca/!svn/ver/104/script/server
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn_mediafranca/!svn/ver/104/script/dbconsole
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn_mediafranca/!svn/ver/104/script/destroy
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn_mediafranca/!svn/ver/104/script/runner
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn_mediafranca/!svn/ver/104/script/about
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn_mediafranca/!svn/ver/104/script/generate
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn_mediafranca/!svn/ver/104/script/plugin
+END

@@ -1,0 +1,123 @@
+<% content_for :contentTitle do %>
+<div id="topicBar" class="structure">
+	<div id="titleConversation" class="cf">
+		<h2>Ultimas Conversaciones</h2> 
+	</div><!-- end titleConversation -->
+	
+	<!-- <div id="searchTopic">
+		<%= form_remote_tag(:update => "contentList", :url => {:controller => :home, :action => :addFilter}) %> 
+		<input class="btnAddTopic" type="submit" value="" alt="Añadir tema"/><input name="txt" type="text" alt="Escribe un tema" value="Escribe un tema" class="searchTopic"/></div> end searchTopic --> 
+					</form>
+</div><!-- btnPopTopic -->
+<% end %>
+
+<% content_for :content do %>
+<div id="contentTools">
+	<span id="conversationNumber" class="sans noColor small">410</span>
+	<%= link_to "Ver mapa", {:controller => "home", :action => "indexMap"}, :id => 'btnMap', :class => 'sans small linkStyle' %>
+	<ul id="order" class="right small">
+		<li><a class="iconRelevanceDown" href="#">relevance down</a></li>
+		<li><a class="iconRelevanceUp" href="#">relevance up</a></li>
+		<li><a class="iconPost" href="#">post</a></li>
+		<li><a class="iconTime" href="#">time</a></li>				
+		<li class="orderTitle">ordenar por &nbsp;</li>
+	</ul>
+	</div><!-- end contentTools --> 
+	
+	<div id="contentList">
+		<% for conversation in @listConversations do %>
+			<%
+				@tags = Array.new
+				@publications = Publication.all(:conditions => {"conversation_id" => conversation._id})
+				for p in @publications
+					for x in p.topics
+						unless @tags.include?(x.title)
+							@tags << x.title
+						end 
+					end 
+				end 
+			%>		
+			<div class="conversation cf">
+					<ul id="indicator" class="sans xsmall greyMedium left">
+						<li><a class="iconPost"><%= @publications.size %></a></li>
+					</ul>
+					<div class="conversationTextBox">
+					<h4 class="noMargin"><%= link_to conversation.title, :controller => "conversations", :action => "show", :id =>conversation._id %><span class="moreInfo small sans"> Leer más</span></h4>
+					
+					<ul id="tag" class="small">
+					<% for t in @tags %> 
+						<li><a href="#"><%= t %></a></li>
+					<% end %>
+					</ul>
+				</div><!-- end div class="conversationTextBox" -->
+
+					<% @n_up = Relevance.all(:conditions => {"conversation_id" => conversation._id, "tipo" => "up"}) %>
+				<% if current_user %>
+					<% @yavoto = Relevance.all(:conditions => {"conversation_id" => conversation._id, "citizen_id" => current_user._id}) %>
+				<% end %>
+
+				<span class="xsmall">
+					<ul id="relevance">
+						<div id="relevance_<%= conversation._id %>">
+						<% if (current_user) && (@yavoto.size == 0 ) %>
+							<li><%=  link_to_remote @n_up.size, {:url => { :controller => "relevance", :action => "saveRelevance", :citizen_id => current_user._id, :conversation_id => conversation._id, :tipo => "up"}}, {:id => "r_b_up_#{conversation._id}", :class => "iconRelevanceUp"}  %></li>
+						<% else %>
+								<li><a href="#" class ="iconRelevanceUp" id="r_b_up_#{conversation._id}"><%= @n_up.size %></a></li>Votaste
+						<% end %>
+						</div>
+					</ul>
+				</span>
+				<span id="timer" class="sans xsmall greyMedium"><b>22 min atrás</b></span>
+			</div> <!-- end class="conversation cf" -->
+		<% end %>
+	</div> <!-- end ContentsList  -->
+<div id="contentNav" class="nav medium cf">
+	<span class="btnNext">Anteriores</span>
+	<span class="btnPrevious">Siguientes</span>						
+</div> <!-- end contentNav  -->
+<% end %>
+
+<% content_for :sidebar do %>
+
+
+<div id="newPublicationBox" class="sidebarBoxes">
+<% 	if current_user %>	
+	<ul>
+		<li><%= link_to "Crear Conversación", :controller => "publications", :action => "new" %></li>
+	</ul>
+<%else%>
+	<ul>
+		<li class="newAcount"><%= link_to t(:signup), {:controller=>"citizens", :action=>"new"}, :class =>"btnSingUp" %></li>
+	</ul>
+<% end %>
+</div>
+
+
+<div id="popTopics" class="sidebarBoxes">
+<span id="boxTitule" class="iconTopics"><h5>Temas Populares</h5></span>
+<ul class="medium">
+<% unless @t.blank? %>
+		<% for i in 0..5 do %>
+			<a href="#"><li><p><%= @t[i][0] %><span class="popIndicator right small sans"><%= @t[i][1] %></span></p></li></a>
+		<% end %>
+<% end %>
+</ul>
+</div><!-- end popTopics -->
+<div id="people" class="cf sidebarBoxes">
+<span id="boxTitule" class="iconPeople "><h5>Personas</h5></span>
+	<ul class="medium">
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+	</ul>
+</div> <!-- end people -->
+<% end %>
+

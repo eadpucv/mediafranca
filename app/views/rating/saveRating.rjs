@@ -1,0 +1,1 @@
+page.replace_html "relevance_#{@p_id}","<li><a href='#' class ='iconRelevanceUp'>#{@n_up}</a></li> <li><a href='#' class ='iconRelevanceDown'>#{@n_down}</a></li> Votaste"

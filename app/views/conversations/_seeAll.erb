@@ -1,0 +1,41 @@
+<div id="contentList">
+	<% for p in @publications %>
+		<div class="post cf">
+			<div id="aqui"></div>
+			<div class="postTextBox cf">
+				<%= image_tag "citizenImg/#{p.citizen.id}/#{p.citizen.id}.jpg", :class => "avatar" %>
+				<p><a href=""><%= p.citizen.name %> <%= p.citizen.lastname %></a>: <%= p.title %></p>
+				<ul id="tag" class="small">
+					<% @topics_ids = PublicationTopics.find(:all, :conditions=>["publication_id = ?",p.id]) %>
+					<% for t in @topics_ids %> 
+						<% @t = Topic.find(t.topic_id) %>
+						<li><a href="#"><%= @t.title %></a></li>
+					<% end %>
+				</ul>
+			</div> <!-- end class="conversationTextBox" -->
+			<% @n_up = Rating.all(:conditions => {"publication_id" => p.id, "tipo" => "up"}) %>
+			<% @n_down = Rating.all(:conditions => {"publication_id" => p.id,"tipo" => "down"}) %>
+			<% 	if current_user %>
+				<% @yavoto = Rating.all(:conditions => {"publication_id" => p.id, "citizen_id" => current_user.id}) %>
+			<% end %>
+			<div class="postRelevanceBox">
+				<ul id="relevance">
+					<div id="relevance_<%= p.id %>" class="sans xsmall noMargin">
+						<% if (current_user) && (@yavoto.size == 0 ) %>
+							<li><%=  link_to_remote @n_up.size, {:url => { :controller => "rating", :action => "saveRating", :citizen_id => current_user.id, :publication_id => p.id, :tipo => "up"}}, {:id => "r_b_up_#{p.id}", :class => "iconRelevanceUp"}  %></li>
+							<li><%=  link_to_remote @n_down.size, {:url => { :controller => "rating", :action => "saveRating", :citizen_id => current_user.id, :publication_id => p.id, :tipo => "down"}}, {:id => "r_b_down_#{p.id}", :class => "iconRelevanceDown"}  %></li>
+						<% else %>
+
+								<li><a href="#" class ="iconRelevanceUp"><%= @n_up.size %></a></li>
+								<li><a href="#" class ="iconRelevanceDown"><%= @n_down.size %></a></li>
+
+						<% end %>
+					</div>
+				</ul>
+			</div><!-- end class="postRelevanceBox" -->
+			<span id="timer" class="sans xsmall greyMedium">
+				<b><% if p.date != nil%><%= time_ago_in_words(p.date) %> <% end %><!-- <a clas="iconPhoto" alt="Photo">Elementos de media 1 --></a></b>
+			</span>
+		</div><!-- end class="post cf" -->
+		<% end %>	  					  				  					  				
+</div>

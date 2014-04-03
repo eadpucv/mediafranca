@@ -1,0 +1,7 @@
+page['topic_title'].value = params[:id]
+page.replace_html :resultLiveSearchTopics," "
+#page << "new Effect.Fade('resultLiveSearchTopics')"
+
+
+
+

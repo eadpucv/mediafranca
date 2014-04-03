@@ -1,0 +1,2 @@
+class CircumscriptionsController < ApplicationController
+end

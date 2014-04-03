@@ -1,0 +1,46 @@
+class CitizensController < ApplicationController
+before_filter :login_required, :except => [:new,:create]
+
+  def todos
+  	@citizen = Citizen.all
+  end
+  
+  def new
+    @citizen = Citizen.new
+  end
+  
+  def create
+    @citizen = Citizen.new(params[:citizen])
+    if @citizen.save
+      session[:citizen_id] = @citizen.id
+      flash[:notice] = t(:newAccount)
+      redirect_to :action => "todos"
+    else
+      render :action => 'new'
+    end
+  end
+
+  def edit
+    @citizen = Citizen.find(params[:id])
+    @positions = Position.all(:conditions => {:citizen_id => @citizen.id})
+
+  end
+  
+  def update
+    @citizen = Citizen.find(params[:id])
+    if @citizen.update_attributes(params[:user])
+      flash[:notice] = t(:editAccount)
+      redirect_to :action => 'todos'
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def destroy
+    @citizen = Citizen.find(params[:id])
+    @citizen.destroy
+    flash[:notice] = "Se ha eliminado el usuario correctamente"
+    redirect_to :controller =>"citizen", :action =>"todos"
+  end
+  
+end

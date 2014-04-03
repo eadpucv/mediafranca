@@ -1,0 +1,39 @@
+<div id="contentList">
+	<% for p in @publications %>
+	<div class="post cf">
+		<div id="aqui"></div>
+		<div class="postTextBox cf">
+			<img class="avatar" src="images/avatar.png"/>
+			<p><a href=""><%= p.citizen.name %> <%= p.citizen.lastname %></a>: <%= p.title %></p>
+		</div> <!-- end class="conversationTextBox" -->
+
+		<% @n_up = Rating.all(:conditions => {"publication_id" => p._id, "tipo" => "up"}) %>
+		<% @n_down = Rating.all(:conditions => {"publication_id" => p._id,"tipo" => "down"}) %>
+		<% @yavoto = Rating.all(:conditions => {"publication_id" => p._id, "citizen_id" => current_user._id}) %>
+
+		<div class="postRelevanceBox">
+			<ul id="relevance">
+				<div id="relevance_<%= p._id %>" class="sans xsmall noMargin">
+					<% if (current_user) && (@yavoto.size == 0 ) %>
+						<li><%=  link_to_remote @n_up.size, {:url => { :controller => "rating", :action => "saveRating", :citizen_id => current_user._id, :publication_id => p._id, :tipo => "up"}}, {:id => "r_b_up_#{p._id}", :class => "iconRelevanceUp"}  %></li>
+						<li><%=  link_to_remote @n_down.size, {:url => { :controller => "rating", :action => "saveRating", :citizen_id => current_user._id, :publication_id => p._id, :tipo => "down"}}, {:id => "r_b_down_#{p._id}", :class => "iconRelevanceDown"}  %></li>
+					<% else %>
+						<% if current_user %>
+							<li><a href="#" class ="iconRelevanceUp"><%= @n_up.size %></a></li>
+							<li><a href="#" class ="iconRelevanceDown"><%= @n_up.size %></a></li>Votaste
+						<% end %>					
+					<% end %>
+				</div>
+			</ul>
+		</div><!-- end class="postRelevanceBox" -->
+		<span id="timer" class="sans xsmall greyMedium">
+			<b>1 minutos atrás <a clas="iconPhoto" alt="Photo">Elementos de media 1</a></b>
+		</span>
+	</div><!-- end class="post cf" -->
+	<% end %>
+		  					  				
+</div> <!-- end ContentsList  -->
+<div id="contentNav" class="nav medium cf">
+	<span class="btnNext">Anteriores</span>
+	<span class="btnPrevious">Siguientes</span>						
+</div><!-- end contentNav  -->

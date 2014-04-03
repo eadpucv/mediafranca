@@ -1,0 +1,25 @@
+<% for c in @find do %>
+	<% @tags = Array.new
+		@publications = Publication.all(:conditions => {"conversation_id" => c.id})
+		for p in @publications
+			for x in p.topics
+				unless @tags.include?(x.title)
+					@tags << x.title
+				end 
+			end 
+		end 
+	%>
+	<div class="conversation cf">
+		<ul id="indicator" class="sans xsmall greyMedium left">
+			<li><a class="iconPost"><%= @publications.length %></a></li>
+		</ul>
+		<h4 class="noMargin"><%= link_to c.title, :controller => "conversations", :action => "show", :id =>c.id %><span class="moreInfo small sans"> Leer más</span></h4>	
+		<ul id="tag" class="small">
+			<% for t in @tags %> 
+				<li><a href="#"><%= t %></a></li>
+			<% end %>
+		</ul>
+		<span id="timer" class="sans xsmall greyMedium"><b>1 minutos atrás</b></span>
+		<span class="right sans xsmall"><ul id="relevance"><a href="#" class="iconRelevanceUp"><li>23</li></a><a href="#" class="iconRelevanceDown"><li>1333</li></a></ul></span>
+	</div>
+<% end %>

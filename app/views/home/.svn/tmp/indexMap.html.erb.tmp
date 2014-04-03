@@ -1,0 +1,53 @@
+<% content_for :contentTitle do %>
+ <div id="topicBar"><span id="btnList" class="sans small">Ver lista</span><span id="conversationNumber" class="sans noColor small">410</span><a  href="#"><span id="btnPopTopic">Temas Populares ▼</span></a> 
+<div id="searchTopic"><input class="btnAddTopic" type="submit" value="" alt="Añadir tema"/><input type="text" alt="Escribe un tema" value="Escribe un tema" class="searchTopic"/></div> <!-- end searchTopic -->
+</div><!-- btnPopTopic -->
+<% end %>
+
+<% content_for :homeTopPost do %>
+<div id="topPost" class="cf">
+	<a href="#"><h2 class="">Levantamiento de casas afectadas por el terremoto en Valparaíso<span class="metatext"></span></h2></a>
+	<ul class="inLine metaText left">
+		<li><a href="#">Leer M&aacute;s</a></li>
+	</ul>
+	<ul class="inLine right metaText space">
+		<li><%= image_tag "iconpublication.png", :class=>"x-icon" %>127</li>
+		<li><%= image_tag "iconrelevanse.png", :class=>"x-icon" %>78</li>
+		<li><%= image_tag "iconpin.png", :class=>"x-icon" %>8</li>
+		<li><%= image_tag "icontime.png", :class=>"x-icon" %>10 minutos atras</li>
+	</ul>
+	</div><!-- end topPost -->
+	<div id="controllerTopPost">
+		<ul class="metaText left">
+			<li>►</li>
+			<li>◙</li>
+		</ul>
+		<ul class="metaText right">
+			<li>●</li>
+			<li>●</li>
+			<li>●</li>
+			<li>●</li>
+			<li>●</li>
+		</ul>
+</div><!-- end controllerTopPost -->
+<% end %> 
+
+<% content_for :map do %>
+<div id="map" class="full noMargin noPaddign">
+<<<<<<< .mine
+	<div id="homeMap"></div><!-- end homeMap -->
+	
+	<script type="text/javascript">
+		showMap();
+	</script>
+</div>
+=======
+  				<div id="homeMap"></div><!-- end homeMap -->
+
+				<script type="text/javascript">
+					showMap("homeMap");
+				</script>
+				</div>
+>>>>>>> .r15
+<% end %>
+

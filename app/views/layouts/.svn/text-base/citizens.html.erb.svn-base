@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//ES"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+	<head>
+		<title>MediaFranca v1</title>
+		<%= stylesheet_link_tag 'screenstyle' %>
+		<%= stylesheet_link_tag 'prototip' %>
+
+		<%= javascript_include_tag "sample-points" %>
+		<%= javascript_include_tag "prototype" %>
+		<%= javascript_include_tag "scriptaculous" %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "prototip" %>
+		<%= javascript_include_tag "tips" %>
+		
+		<script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>			  				  			
+		<div id="notificacion"></div><!-- end notification -->
+				<div id="singUpNew" class="cf" >
+						<%= yield :singUpNew %>					
+		  		</div><!-- end container -->
+
+<div id="footer">
+  			<ul class="footerMenu">
+  					<li><a href="#">Acerca de MediaFranca</a></li>
+  					<li> | </li>
+  					<li><a href="#">Términos y condiciones</a></li>
+  					<li> | </li>
+  					<li><a href="#">¿Necesitas ayuda?</a></li>
+  					<li> | </li>
+  					<li><a href="#">Contacto</a></li>
+  					<li> | </li>
+  					<li class="sans">MediaFranca.cl 2009-2010</li>
+  					<li><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><%= image_tag "cc.png", :alt => 'Attribution-NonCommercial-ShareAlike', :class => "cc", :title =>"Attribution-NonCommercial-ShareAlike" %></a></li>
+  			</ul>
+  			<p class="sans"></p>
+  		</div><!-- end footer -->
+	</body>
+</html>
+

@@ -1,0 +1,3 @@
+pirate:
+  hello: "Hola Mundo - Testing i18n"
+  descripcion: "Esta es una aplicacion re chevere!"

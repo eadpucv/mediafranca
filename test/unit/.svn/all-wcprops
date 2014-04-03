@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn_mediafranca/!svn/ver/4/test/unit
+END
+user_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn_mediafranca/!svn/ver/4/test/unit/user_test.rb
+END
+district_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn_mediafranca/!svn/ver/4/test/unit/district_test.rb
+END
+talk_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn_mediafranca/!svn/ver/4/test/unit/talk_test.rb
+END
+citys_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn_mediafranca/!svn/ver/4/test/unit/citys_test.rb
+END
+publications_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn_mediafranca/!svn/ver/4/test/unit/publications_test.rb
+END
+representative_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn_mediafranca/!svn/ver/4/test/unit/representative_test.rb
+END
+topics_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn_mediafranca/!svn/ver/4/test/unit/topics_test.rb
+END
+gente_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn_mediafranca/!svn/ver/4/test/unit/gente_test.rb
+END
+regions_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn_mediafranca/!svn/ver/4/test/unit/regions_test.rb
+END
+person_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn_mediafranca/!svn/ver/4/test/unit/person_test.rb
+END
+ratings_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn_mediafranca/!svn/ver/4/test/unit/ratings_test.rb
+END
+senator_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn_mediafranca/!svn/ver/4/test/unit/senator_test.rb
+END
+ubication_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn_mediafranca/!svn/ver/4/test/unit/ubication_test.rb
+END
+multimedias_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn_mediafranca/!svn/ver/4/test/unit/multimedias_test.rb
+END
+circumscription_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn_mediafranca/!svn/ver/4/test/unit/circumscription_test.rb
+END

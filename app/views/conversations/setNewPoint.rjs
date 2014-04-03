@@ -1,0 +1,4 @@
+page[:addAdress].value = @dir
+page[:addAdress_2].value = @dir
+
+

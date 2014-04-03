@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn_mediafranca/!svn/ver/128/app/views/topics
+END
+addTopicToPublication.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/138/app/views/topics/addTopicToPublication.rjs
+END
+topicSelected.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn_mediafranca/!svn/ver/113/app/views/topics/topicSelected.rjs
+END
+topicSearch.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn_mediafranca/!svn/ver/138/app/views/topics/topicSearch.html.erb
+END

@@ -1,0 +1,70 @@
+class UbicationsController < ApplicationController
+
+	def create
+		@ubication = Ubication.new(params[:ubication])
+		
+		#seteamos variables con los valores pasados por parametros
+		@ciudad = params[:ubication][:ciudad]
+		@pais   = params[:ubication][:pais]
+		@direccion = params[:ubication][:direccion]
+		usuario = params[:ubication][:user_id]
+
+		#y rescatamos las coordenadas de la ubicacion
+		@userUbication = "#{@direccion}, #{@ciudad}, #{@pais}"
+		@ubication.coordenadas = getGeoLocation(@userUbication)
+		
+		#save!
+		if @ubication.save		
+  			@ubications = Ubication.all(:conditions => {:user_id => current_user._id})
+			render(:action =>"listUbications4User", :layout => false)
+		else
+			render(:text => 'Cago!')
+		end
+	end 
+	
+	def getGeoLocation(dir)
+		@geo=GeoKit::Geocoders::GoogleGeocoder.geocode "#{dir}"
+		@lat = @geo.lat 
+		@long = @geo.lng
+		@coordenadas = "#{@lat} #{@long}"
+		
+		return @coordenadas
+	end 
+	
+	def new
+		@ubication = Ubication.new
+		render(:layout => false)
+	end
+  
+  	def listUbications4User
+		render(:layout => false)	
+  	end 
+  
+  	def update
+		usuario   = params[:ubication][:user_id]
+    	@ubication = Ubication.find(params[:id])
+		@ciudad = params[:ubication][:ciudad]
+		@pais   = params[:ubication][:pais]
+
+	
+		@direccion = params[:ubication][:direccion]
+		@userUbication = "#{@direccion}, #{@ciudad}, #{@pais}"
+
+		@ubication.update_attributes(:coordenadas => getGeoLocation(@userUbication))
+    	if @ubication.update_attributes(params[:ubication])
+  			@ubications = Ubication.all(:conditions => {:user_id => current_user._id})
+      		render(:action =>'listUbications4User', :usuario => usuario, :layout => false)
+    	end
+  end 
+  def edit
+    	@ubication = Ubication.find(params[:id])
+    	render(:layout => false)
+  end
+  
+  def destroy
+    	@ubication = Ubication.find(params[:id])
+    	@ubication.destroy
+    	@notif = "Se ha eliminado la ubicacion correctamente"
+		render (:text => @notif)
+  end 
+end

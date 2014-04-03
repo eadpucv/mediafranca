@@ -1,0 +1,10 @@
+en:
+  hello: "Bienvenido a MediaFranca!"
+  error_username_pass: "Ups! Tienes un error en el ingreso de datos"
+  goodbye: "Estas saliendo de MediaFranca, Adios!"
+  newAccount: "Tu cuenta en MediaFranca ha sido creada"
+  editAccount: "Tus datos han sido actualizados correctamente"
+  currentUser: "Que tal "
+  haveAccount: "No te has registrado? "
+  signup: "Crear una cuenta"
+  login: "Ingresa a "

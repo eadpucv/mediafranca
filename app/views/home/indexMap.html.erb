@@ -1,0 +1,46 @@
+<% content_for :contentTitle do %>
+	<%= GMap.header %>
+	<%= @map.to_html %>
+	
+	<div id="topicBar" class="structure"><%= link_to "Ver Lista", {:controller => "home", :action => "indexList"}, :id => 'btnList', :class => 'sans small linkStyle' %>
+	 <span id="btnPopTopic">
+		 <%= link_to_function ("Temas Populares") do |page| page.visual_effect(:toggle_blind, 'showPopTopics', :duration => 0.2)   end %>
+	 </span>
+	</div><!-- btnPopTopic -->
+	
+	<div id="showPopTopics" style="display: none">
+		<ul>
+			<li>tema 1</li>
+			<li>tema 2</li>
+		</ul>
+	</div>
+<% end %>
+
+<% content_for :homeTopPost do %>
+	<div id="topPost" class="cf">
+		<% i = 1 %>
+		<% for c in @conversations %>
+			<div id="c_<%=i%>" class="conversation cf">
+				<ul id="indicator" class="sans xsmall greyMedium left">
+					<li><a class="iconPost"><%= c.total_publicaciones %></a></li>
+				</ul>
+				<%= link_to "<h2 class='noMargin'>#{c.title}<span class='moreInfo xxsmall sans'> Leer más</span></h2>", :controller => "conversations", :action => "show", :id =>c.id %>
+				<% for t in c.topics %>
+					<ul id="tag" class="small">
+						<li><a href="#"><%= t.title %></a></li>
+					</ul>				
+				<% end %>
+				<span id="timer" class="sans xsmall greyMedium"><b><%=  link_to_remote "[ver mapa]", :url => { :action => "updateHomeMap", :id => c.id, :total => @conversations.size, :actual => i }, :update => { :success => "subContainer"}, :html =>{:class =>"iconRelevanceUpConversation"} %></b></span>		
+				<span id="timer" class="sans xsmall greyMedium"><b><%= time_ago_in_words(c.ultima_publicacion) %></b></span>
+			</div>
+			<% i = i+1 %>
+		<% end %> 
+	</div>	
+<% end %> 
+
+<% content_for :map do %>
+	<div id="map" class="full noMargin noPaddign">
+		<div id="homeMap"></div><!-- end homeMap -->
+	</div>
+<% end %>
+

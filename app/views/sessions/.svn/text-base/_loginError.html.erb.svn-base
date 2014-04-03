@@ -1,0 +1,9 @@
+
+<span class="login">
+	<%= link_to t(:signup), {:controller=>"citizens", :action=>"new"}, :class =>"btnSingUp" %>
+	<%= link_to_remote "Ingresar", {:url => {:controller=>"sessions", :action=>"showForm"}}, :class => "btnLogin", :title=>"Accede a tu cuenta desde aqu’" %>
+</span>
+
+<span class="loginError">Error de usuario o password</span>
+
+

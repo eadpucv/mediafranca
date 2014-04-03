@@ -1,0 +1,29 @@
+<div id="contentList">
+	<% for conversation in @conversations do %>
+		<div class="conversation cf">
+				<ul id="indicator" class="sans xsmall greyMedium left">
+					<li><a class="iconPost"><%= conversation.total_publicaciones %></a></li>
+				</ul>
+				<div class="conversationTextBox">
+				<h4 class="noMargin"><%= link_to conversation.title, :controller => "conversations", :action => "show", :id =>conversation.id %><span class="moreInfo small sans"> Leer más</span></h4>
+				<ul id="tag" class="small">					
+					<% for t in conversation.topics %> 
+						<li><a href="#"><%= t.title %></a></li>
+					<% end %>
+				</ul>
+			</div><!-- end div class="conversationTextBox" -->
+			<span class="xsmall">
+				<ul id="relevance">
+					<div id="relevance_<%= conversation.id %>">
+					<% if (current_user) && (conversation.ya_voto == 0 ) %>
+						<li><%=  link_to_remote conversation.relevance, {:url => { :controller => "relevance", :action => "saveRelevance", :citizen_id => current_user.id, :conversation_id => conversation.id, :tipo => "up"}}, {:id => "r_b_up_#{conversation.id}", :class => "iconRelevanceUpConversation"}  %></li>
+					<% else %>
+							<li><a href="#" class ="upVotingOn" id="r_b_up_#{conversation.id}"><%= conversation.relevance %></a></li>
+					<% end %>
+					</div>
+				</ul>
+			</span>
+			<span id="timer" class="sans xsmall greyMedium"><b><% if conversation.ultima_publicacion != nil%><%= time_ago_in_words(conversation.ultima_publicacion) %> <% end %></b></span>
+		</div> <!-- end class="conversation cf" -->
+	<% end %>
+</div> <!-- end ContentsList  -->

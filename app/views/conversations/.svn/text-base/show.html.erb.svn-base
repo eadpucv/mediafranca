@@ -1,0 +1,200 @@
+<% content_for :contentTitle do %>
+<%= GMap.header %>
+<%= @map.to_html %>
+<%= @map2.to_html %>
+
+<div id="titleConversation" class="cf">
+	<h2><%= @conversation.title %></h2> 
+
+	</div><!-- end titleConversation -->
+	
+	 <div id="topicBar" class="structure">
+		<ul id="tag" class="small">
+			<% for t in @tags %>
+				<li><%= link_to "#{t.title}", :controller => :home, :action=>:indexList, :text=>t.title, :tipo=>"search" %></li>
+
+			<% end %>
+
+		</ul>	
+</div><!-- topicBar -->
+<% end %>
+
+<% content_for :content do %>
+	<% 	if current_user %>
+	<div id="publishBox" class="cf">
+		<h3>Publica en esta conversación</h3>
+			<%= form_tag(:controller => :publications, :action => :create) %>
+			<input type="hidden" name="publication[citizen_id]" value="<%= current_user.id %>">
+			<input type="hidden" name="publication[conversation_id]" value="<%= params[:id] %>">
+			<input type="hidden" name="type" value="fromConversation">
+			<%=  text_area(:publication, :title, :cols => 55, :rows => 2) %>
+			<ul id="newTopics" class="cf"></ul>
+			<ul id="newUbications" class=""></ul>
+			<ul id="newMultimedia"></ul>
+			
+			<div id="addMediaTools" class="cf">
+				<div id="previewPublication" class="medium">
+					<div id="adressAdded" class="sidebarBoxes cf"></div>
+				</div><!-- end previewPublication -->
+			<input class="btn " type="submit" value="Publicar">
+			</form>
+
+			
+				<%= form_remote_tag(:update => "lista", :url => {:controller => :topics, :action => :addTopicToPublication}, :html => {:class => "left" }) %> 
+					<input id="topic_title" class="add" type="text" size="15" name="topic_search" value="Añadir etiquetas" autocomplete="off" onfocus="blanc('topic_title')"  onblur="blanc('topic_title','Añadir Etiqueta')"><%= submit_tag 'Añadir', :class => "btnAdd" %>
+				</form>
+				<div id="multimedia"></div>
+				<ul id="addMedia" class="sans xsmall">
+					<li><%= link_to_function ("Foto", :class => "addPhoto" ) do |page| page.visual_effect(:toggle_blind, 'photoAdd', :duration => 0.5)   end %></li>
+					<li><%= link_to_function ("Video", :class => "addVideo" ) do |page| page.visual_effect(:toggle_blind, 'videoAdd', :duration => 0.5)   end %></li>
+					<li><%= link_to_function ("Presentacion", :class => "addPresentation" ) do |page| page.visual_effect(:toggle_blind, 'presentationAdd', :duration => 0.5)   end %></li>										
+					<li><%= link_to_function ("Ubicación", :class => "addMapPoint" ) do |page| page.visual_effect(:toggle_blind, 'pointAdd', :duration => 0.5)   end %></li>
+					<li><%= link_to_function ("Link", :class => "addLink" ) do |page| page.visual_effect(:toggle_blind, 'linkAdd', :duration => 0.5)   end %></li>
+				</ul>
+				<br /><br />
+				<div id="mediaBox" >
+
+					<ul id="photoAdd" style="display:none;">
+						<li>	
+							<%= form_remote_tag(:url => {:controller => :publications, :action => :addMultimedia}) %>
+								<p>Agregar una imagen</p>						
+								<input name="url" size="70" type="text" class="upFile" ></p>
+								<input name="mime" type="hidden" value="Imagen">
+								<input type="submit" class="btn right" value="Añadir"></p>
+							</form>
+						</li>
+					</ul>
+					<ul id="videoAdd" style="display:none;">
+						<li>
+							<p>Cargar video</p>
+							<%= form_remote_tag(:url => {:controller => :publications, :action => :addMultimedia}) %>					
+								<input name="url" size="70" type="text" class="upFile" ></p>
+								<input name="mime" type="hidden" value="Video">
+								<input type="submit" class="btn right" value="Añadir video"></p>
+							</form>
+						</li>
+					</ul>
+
+					<ul id="presentationAdd" style="display:none;">
+						<li>
+							<p>Cargar documento</p>
+							<%= form_remote_tag(:url => {:controller => :publications, :action => :addMultimedia}) %>
+								<input name="url" size="70" type="text" class="upFile" ></p>
+								<input name="mime" type="hidden" value="Doc">
+								<input type="submit" class="btn right" value="Añadir video"></p>
+							</form>
+						</li>					
+						
+					</ul>
+
+					<ul id="pointAdd" style="display:none;">
+						<li>
+							<div id="mapNewPublication" class="cf">
+								<div id="c2">
+							        <%= @map2.div(:width => "100%", :height => 200) %>
+									<%= form_remote_tag(:url => {:action => :savePoint}, :html => {:class => "noMargin addUbiquity" }) %> 
+										<input type="hidden" name="address" id="addAdress_2">
+										<input type="hidden" name="lat" id="lat">
+										<input type="hidden" name="lon" id="lon">
+										<input type="submit" id="btnAddAdress_2" name="boton_ubicar" value="Guardar" class="btnAdd" title="Guardar">
+									</form>
+							        <%= form_remote_tag(:url => {:action => :searchPoint}, :html => {:class => "noMargin addUbiquity" }) %> 
+										<input type="text"  id="addAdress" name="dir" class="add addUbicatios">
+										<input type="submit" id="btnAddAdress_2" name="boton_ubicar" value="Ubicar" class="btnAdd" title="Ubicar">
+									</form>
+								</div>
+	
+								<%= observe_field 'lat',
+				      				:url => { :action => :setNewPoint },
+				      				:frequency => 0.5,
+				      				:with => "'lat='+value+'&lon='+$('lon').value+'&address='+$('addAdress').value " %>
+							</div><!-- end mapNewPublication -->
+						</li>
+					</ul>
+
+					<ul id="linkAdd" style="display:none;">
+						<li>
+							<%= form_remote_tag(:url => {:controller => :publications, :action => :addMultimedia}) %>
+								<p> Link <br />
+								<input name="url" size="70" type="text" class="upFile" ></p>
+								<input name="mime" type="hidden" value="Link">
+								<input type="submit" class="btn right" value="Añadir Link"></p>
+							</form>
+						</li>
+					</ul>
+
+					<div id="previewPublication" class="medium">
+						<div id="adressAdded" class="cf"></div>
+					</div><!-- end previewPublication -->				
+				</div>
+			</div><!-- end addMediaTools -->
+			<div id="resultLiveSearchTopics"></div>			
+	</div><!-- end publishBox -->
+	<% else %>
+			<div id="publishBox" class="cf">
+				<span class="notification">Para participar en esta conversación debes iniciar sesion</span> 
+			</div>
+	<% end %>	
+	<div id="contentTools">
+		<ul id="visualization" class="sans small">
+			<%=  link_to_remote "<li>Todos</li>", :url => { :action => "seeAll", :id => params[:id]}, :update => { :success => "subContainer"} %>
+			<%=  link_to_remote "<li>Uno a Uno</li>", :url => { :action => "seeOneToOne"}, :update => { :success => "subContainer"} %>
+			<%=  link_to_remote "<li>Personas</li>", :url => { :action => "seePersons"}, :update => { :success => "subContainer"} %>
+			<%=  link_to_remote "<li>Media</li>", :url => { :action => "seeMedia",:id => params[:id] }, :update => { :success => "subContainer"} %>		
+		</ul>
+		<ul id="order" class="right small">
+			<%=  link_to_remote "<li>Tiempo</li>", :url => { :action => "seeAll4Date", :id => params[:id]}, :update => { :success => "subContainer"}, :html =>{:class =>"iconTime"} %>
+			<%=  link_to_remote "<li>- Relevante</li>", :url => { :action => "seeAll4VoteDown", :id => params[:id]}, :update => { :success => "subContainer"}, :html =>{:class =>"iconRelevanceDown"} %>
+			<%=  link_to_remote "<li>+ Relevante</li>", :url => { :action => "seeAll4VoteUp", :id => params[:id]}, :update => { :success => "subContainer"}, :html =>{:class =>"iconRelevanceUp"} %>
+		</ul>
+	</div><!-- end contentTools --> 
+	
+	<div id="subContainer">
+		<div id="contentList">
+			<% for p in @publications %>
+					<div class="post cf">
+						<div id="aqui"></div>
+						<div class="postTextBox cf">
+							<%= image_tag "citizenImg/#{p.citizen.id}/#{p.citizen.id}.jpg", :class => "avatar" %>
+							<p><a href=""><%= p.citizen.name %> <%= p.citizen.lastname %></a>: <%= p.title %></p>
+							<ul id="tag" class="small">
+									<% @topics_ids = PublicationTopics.find(:all, :conditions=>["publication_id = ?",p.id]) %>
+									<% for t in @topics_ids %> 
+										<% @t = Topic.find(t.topic_id) %>
+										<li><%= link_to "#{@t.title}", :controller => :home, :action=>:indexList, :text=>@t.title, :tipo=>"search" %></li>										
+									<% end %>
+							</ul>
+						</div> <!-- end class="conversationTextBox" -->
+						<% @n_up = Rating.all(:conditions => {"publication_id" => p.id, "tipo" => "up"}) %>
+						<% @n_down = Rating.all(:conditions => {"publication_id" => p.id,"tipo" => "down"}) %>
+						<% 	if current_user %>
+							<% @yavoto = Rating.all(:conditions => {"publication_id" => p.id, "citizen_id" => current_user.id}) %>
+						<% end %>
+						<div class="postRelevanceBox">
+							<ul id="relevance">
+								<div id="relevance_<%= p.id %>" class="sans xsmall noMargin">
+									<% if (current_user) && (@yavoto.size == 0 ) %>
+										<li><%=  link_to_remote @n_up.size, {:url => { :controller => "rating", :action => "saveRating", :citizen_id => current_user.id, :publication_id => p.id, :tipo => "up"}}, {:id => "r_b_up_#{p.id}", :class => "iconRelevanceUp"}  %></li>
+										<li><%=  link_to_remote @n_down.size, {:url => { :controller => "rating", :action => "saveRating", :citizen_id => current_user.id, :publication_id => p.id, :tipo => "down"}}, {:id => "r_b_down_#{p.id}", :class => "iconRelevanceDown"}  %></li>
+									<% else %>
+
+											<li><a href="#" class ="iconRelevanceUp"><%= @n_up.size %></a></li>
+											<li><a href="#" class ="iconRelevanceDown"><%= @n_down.size %></a></li>
+
+									<% end %>
+								</div>
+							</ul>
+						</div><!-- end class="postRelevanceBox" -->
+						<span id="timer" class="sans xsmall greyMedium">
+							<b><% if p.date != nil%><%= time_ago_in_words(p.date) %> <% end %><!-- <a clas="iconPhoto" alt="Photo">Elementos de media 1 --></a></b>
+						</span>
+					</div><!-- end class="post cf" -->
+					<% end %>	  					  				  					  				
+		</div>
+	</div>
+<% end %>
+
+<% content_for :sidebar do %>
+<%= render "barra" %>
+<% end %>
+

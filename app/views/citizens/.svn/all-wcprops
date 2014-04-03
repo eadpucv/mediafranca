@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn_mediafranca/!svn/ver/130/app/views/citizens
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn_mediafranca/!svn/ver/138/app/views/citizens/edit.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn_mediafranca/!svn/ver/127/app/views/citizens/new.html.erb
+END
+contacts.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn_mediafranca/!svn/ver/130/app/views/citizens/contacts.html.erb
+END

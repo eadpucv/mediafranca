@@ -1,0 +1,8 @@
+
+<% if @topics %>
+	<% unless @topics.length == 0 %>
+  		<% for x in @topics %>
+			<li><%= link_to_remote x.title, :url=>{:action=>:topicSelected, :id=>x.title} %></li>			
+ 		<% end %>
+	<% end %>
+<% end %>

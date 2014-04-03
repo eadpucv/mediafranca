@@ -1,0 +1,21 @@
+page.insert_html :bottom ,'multimedia',"<input id='mi_#{@u}' type='hidden' name='multimedia[]' value='#{@u}'>"
+if @mime == "Imagen"
+	page.insert_html :bottom ,'newMultimedia',"<span id='mu_#{@u}'><img src='#{@u}' width='100' height='100'/><br /></span>"
+	page.hide "photoAdd"
+end
+if @mime == "Video"
+	page.insert_html :bottom ,'newMultimedia',"<span id='mu_#{@u}'><a href='#{@u}'/>- Video</a><br /></span>"
+	page.hide "videoAdd"	
+end
+if @mime == "Audio"
+	page.insert_html :bottom ,'newMultimedia',"<span id='mu_#{@u}'><a href='#{@u}'/>- Audio</a><br /></span>"
+	page.hide "audioAdd"	
+end
+if @mime == "Doc"
+	page.insert_html :bottom ,'newMultimedia',"<span id='mu_#{@u}'><a href='#{@u}'/>- Documento</a><br /></span>"
+	page.hide "presentationAdd"	
+end
+if @mime == "Link"
+	page.insert_html :bottom ,'newMultimedia',"<span id='mu_#{@u}'><a href='#{@u}'/>- Link</a><br /></span>"
+	page.hide "linkAdd"	
+end

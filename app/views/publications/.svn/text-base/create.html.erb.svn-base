@@ -1,0 +1,36 @@
+
+<% if @sg.size==0 %>
+	<span class="notification">No se encontraron convesaciones similares</span>
+<% else %>
+<div id="contentList">
+	<% for i in 0..@sg.size.to_i - 1 do %>
+			<% 
+			  	@c = Conversation.first(:conditions => {"id" => @sg[i][0]})
+				@sql = "SELECT distinct topics.title  FROM publications,conversations,publication_topics,topics WHERE publications.conversation_id = #{@c.id} AND publications.id = publication_topics.publication_id AND publication_topics.topic_id = topics.id"
+				@t4c = Topic.find_by_sql(@sql)
+			%>	
+			<div class="conversation cf">
+				<ul id="indicator" class="sans xsmall greyMedium left"><li><a class="iconPost">11</a></li></ul>
+				<h4 class="noMargin"><a href="#"><%= @c.title %><span class="moreInfo small sans">Previsualizar</span></a></h4>
+				<span><%= link_to ("Conectar"), {:controller => "publications", :action => "anclar2conversation", :id_p =>@publication.id, :id_c => @c.id}, :class => "btn btnConnect" %></span>
+				<ul id="tag" class="small">
+					<% for z in @t4c %>
+						<li><a href="#"><%= z.title %></a></li>
+					<% end %>
+				</ul>				
+			</div>	
+	<% end %>
+</div><!-- end contentList -->
+<% end %>
+
+<div id="MakeNewConversation">
+	<%= form_tag(:controller => :conversations, :action => :createFromForm) %>
+		<input type="hidden" size="15" name="conversation[first_publication]" value="<%= @publication.id %>">
+		<input type="hidden" size="15" name="conversation[citizen_id]" value="<%= current_user.id %>">
+		<input type="text" class="text" size="15" name="conversation[title]" autocomplete="off" value="Asigna un título" >
+		<%= submit_tag ("Crear una nueva Conversación", :class => "btn btnConnect") %>
+	</form>
+</div>
+
+
+

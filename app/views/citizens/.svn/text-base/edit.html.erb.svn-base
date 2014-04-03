@@ -1,0 +1,88 @@
+
+<% content_for :contentTitle do %>
+	<div id="titleProfile">
+		<a id="avatarEdit" href="#"><%= image_tag "citizenImg/#{@citizen.id}/#{@citizen.id}.jpg", :class => "avatarProfile" %><span class="rollOverShow">Cambiar</span></a>
+		<span class="identificationProfile"><h2><%="#{current_user.name} #{current_user.lastname}" %> <%= link_to_function ("Editar", :class => "xsmall" ) do |page| page.visual_effect(:toggle_blind, 'changeName', :duration => 0.2)   end %></h2>
+		<div id="changeImg" style="display:inline;">
+			<%= error_messages_for :mugshot %>
+			
+			<% form_for(:citizen, :url => {:action => 'uploadImg'}, :html => { :multipart => true }) do |f| -%>
+			  <p><label for="mugshot">Subir Imagen</label><%= f.file_field :upload_data %>			    <%= submit_tag 'Subir' %></p>
+			<% end -%>
+		</div><!-- end changeName -->
+
+		<div id="changeName" style="display:none;">
+			<ul>
+				<li><input value="<%="#{current_user.name}" %>" class="text"><input value="<%="#{current_user.lastname}" %>" class="text"><%= submit_tag "Guardar cambios", :class => "btn" %></li>
+			</ul>
+		</div><!-- end changeName -->
+		
+		<%="#{current_user.email}" %> <!-- <%= link_to_function ("Cambiar Correo eletrónico", :class => "xsmall" ) do |page| page.visual_effect(:toggle_blind, 'changeMail', :duration => 0.2)   end %>  <span class="xsmall">|</span>--> <%= link_to_function ("Cambiar contrase&ntilde;a", :class => "xsmall" ) do |page| page.visual_effect(:toggle_blind, 'changePass', :duration => 0.2)   end %>
+		
+		<div id="changeMail" style="display:none;">
+		
+			<ul>
+		  	<li><input value="<%="#{current_user.email}" %>" class="text"><%= submit_tag "Guardar cambios", :class => "btn" %></li>
+			</ul>
+		
+		</div><!-- end changeMail -->
+		
+		<div id="changePass" style="display:none;">
+			<%= form_remote_tag(:url => {:controller => "citizens", :action => "update", :id => @citizen.id }, :update => {:success => 'notificacion'}) %>
+			<input type="hidden" name="citizen[_id]" value="<%= @citizen.id %>">
+			<ul>
+				<li>Nueva Contraseña <%= password_field "citizen", "password", :value =>"", :class => "text" %> Confirmar <%= password_field "citizen", "password_confirmation",:value =>"", :class => "text" %><%= submit_tag "Guardar cambios", :class => "btn" %></li>
+			</ul>
+		</div><!-- end changePass -->
+	</div><!-- end titleConversation -->
+<% end %>
+
+<% content_for :content do %>
+
+<div id="userProfile">
+	<%= link_to_function ("<h5>Tus datos personales</h5>" ) do |page| page.visual_effect(:toggle_blind, 'personalInfo', :duration => 0.2)   end %>
+	
+		<ul id="personalInfo" class="cf" style="display:none;">
+			<li><p>Fecha de nacimiento<div id="popupDateField" class="dateField">Seleccionar</div></p></li>	
+			<li><p>Sexo
+			<input type="radio" value="female">Femenino</input>
+			<input type="radio" value="male">Masculino</input>
+			</p>
+			</li>
+			<li><a href="" class="btn">Confirmar y guardar datos</a></li>
+		</ul>
+	<h5 id="socialList">Redes sociales <a href="#" class="btn">Facebook</a><a href="#" class="btn">Twitter</a><a href="#" class="btn">Youtube</a><a href="#" class="btn">Vimeo</a><a href="#" class="btn">Flickr</a><a href="#" class="btn">SounCloud</a><a href="#" class="btn">SlideShare</a></h5>
+	<div id="notification"><span class="closeNotificaion"><a href="#" title="cerar">cerrar</a></span><p class="medium">Conecta MediaFranca con las redes sociales en las cuales participas para que así puedas añadir mas contenidos a tus publicaciones. (Recomendado)</p>
+</div><!-- end notification -->
+	
+	<%= link_to_function ("<h5>Preferencias</h5>" ) do |page| page.visual_effect(:toggle_blind, 'preferences', :duration => 0.2)   end %>
+		<ul id="preferences" style="display:none;">
+			<li><p><input type="checkbox"> Recibir notificaciones de sobre conversaciones donde has publicado</p></li>
+			<li><p><input type="checkbox"> Permitir que otros vean tu información personal</p></li>
+			<li><p><input type="checkbox"> Permitir que otros vean tu información de contacto</p></li>
+		</ul>
+	</div><!-- end userProfile -->
+	<% end %>
+	
+<% content_for :sidebar do %>
+<div id="mapUbications" class="sidebarBoxes">
+	<span id="boxTitule" class="iconMap"><h5>Tus ubicaciones <%= link_to_function ("Añadir", :class => "btn right" ) do |page| page.visual_effect(:toggle_blind, 'conversationMap', :duration => 0.2)   end %></h5></span>
+	
+	<div id="conversationMap" style="display:none;">
+	        <%= form_remote_tag(:url => {:action => :addPointToMap}, :html => {:class => "noMargin addUbiquity" }) %> 
+			<input type="text" value="Ej.: Villanelo alto, Viña del mar" id="addAdress" name="dir" class="add addPersonalUbicatios" />
+			<input id="btnAddAdress" type="submit" value="Guardar" class="btnAdd btn" title="Gardar">
+			<input id="btnAddAdress" type="submit" value="Ubicar" class="btnAdd btn" title="Ubicar">
+			</form>
+	</div><!-- end conversationMap -->
+	<div id="adressAdded" class="sidebarBoxes cf"></div><!-- end adressAdded -->
+</div><!-- end mapConversation -->
+
+<div id="tipSidebar">
+		<b>¿Para que añadir ubicaciones?</b>
+		<p>Al añadir tus ubicaciones automáticamente podremos informarte de los asuntos que ahí suceden a modo de suscripciones y ubicar la pantalla principal de MediaFranca en lugares de tu interés.</p>
+		<p><em>! Puedes añadir cuantas quieras ¡</em></p>
+	</div><!-- end tipSidebar -->
+
+
+<% end %>

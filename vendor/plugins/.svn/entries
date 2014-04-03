@@ -1,0 +1,40 @@
+10
+
+dir
+135
+http://ead.pucv.cl/svn_mediafranca/vendor/plugins
+http://ead.pucv.cl/svn_mediafranca
+
+
+
+2011-01-17T13:34:14.433728Z
+132
+rodrigo
+has-props
+
+
+svn:externals
+
+
+
+
+
+
+
+
+
+
+7c592e29-8f90-4759-9e88-944a5018046e
+
+ym4r_mapstraction
+dir
+
+will_paginate
+dir
+
+auto_complete
+dir
+
+ym4r_gm
+dir
+

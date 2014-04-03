@@ -1,0 +1,7 @@
+require 'test_helper'
+
+class GenteTest < ActiveSupport::TestCase
+  def test_should_be_valid
+    assert Gente.new.valid?
+  end
+end

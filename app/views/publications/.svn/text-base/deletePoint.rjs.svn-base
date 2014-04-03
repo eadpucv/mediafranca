@@ -1,0 +1,2 @@
+page.remove("#{@id}_ul")
+page.remove("#{@id}_input")

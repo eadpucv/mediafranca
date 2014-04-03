@@ -1,0 +1,6 @@
+page << "var nodes = document.getElementById(\"newTopics\").childNodes;"
+page << "if (nodes[0] == null){"
+	page.insert_html :bottom ,'newTopics',"<input type='hidden' name='topics[]' value='#{@topic_id}'><li class='firstTag'>#{@t} <span id='delete'><a class='sans xsmall' href='#' title='Quitar'>Quitar</a></span></li>"
+page << "} else { "
+	page.insert_html :bottom ,'newTopics',"<input type='hidden' name='topics[]' value='#{@topic_id}'><li>#{@t} <span id='delete'><a class='sans xsmall' href='#' title='Quitar'>Quitar</a></span></li>"
+page << "}"

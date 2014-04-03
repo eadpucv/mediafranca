@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin
+END
+map.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/map.rb
+END
+geocoding.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/geocoding.rb
+END
+helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/helper.rb
+END
+control.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/control.rb
+END
+overlay.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/overlay.rb
+END
+key.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/key.rb
+END
+point.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/point.rb
+END
+mapping.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/mapping.rb
+END
+layer.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn_mediafranca/!svn/ver/61/vendor/plugins/ym4r_gm/lib/gm_plugin/layer.rb
+END

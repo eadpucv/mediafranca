@@ -1,0 +1,12 @@
+class Ubication
+ 	include MongoMapper::Document
+ 	key :titulo, String
+ 	key :direccion, String
+ 	key :ciudad, String
+ 	key :pais, String
+ 	key :coordenadas, String
+ 	key :user_id, ObjectId
+ 	
+ 	belongs_to :user
+ 	
+end

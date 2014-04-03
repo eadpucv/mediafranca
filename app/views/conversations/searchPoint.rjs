@@ -1,0 +1,20 @@
+#page.insert_html :bottom ,'newUbications',"<input id='#{@id}_input' type='hidden' name='publication[position_id][]' value='#{@coordenadas}'>"
+#page.insert_html :bottom ,'adressAdded',"<ul id='#{@id}_ul'><li class='adressAdded'><p>#{@dir} <a onclick=\"new Ajax.Request('/publications/deletePoint/#{@id}', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('02cMN+ehcQoKLuDos4vsHzlUvc/FDCBSr+RNTd2AlsQ=')}); return false;\" href=\"#\">[borrar]</a></p> </li></ul>"
+
+
+page << @map.clear_overlays
+
+page << @marker.declare("marker")
+page << @marker.on_dragend("function () {
+      point = marker.getPoint();
+      map.savePosition();
+   	  $('lat').value = point.lat();
+      $('lon').value = point.lng();
+      return false;
+    }")
+page << @map.add_overlay(@marker)
+page << @center
+
+page[:lon].value = "#{@lon}"
+page[:lat].value = "#{@lat}"
+page[:addAdress_2].value = "#{@dir}"

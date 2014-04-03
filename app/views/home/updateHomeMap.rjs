@@ -1,0 +1,16 @@
+page << @map.clear_overlays
+for p in @publications				
+	@positions = Position.all(:conditions => {"publication_id" => p.id})
+	for x in @positions
+		@coor=x.coordenadas.split(',')
+		lat=@coor[0]
+		log=@coor[1]		
+		@zones = GMarker.new([lat,log],:title =>p.title,:info_window => p.title)
+		page << @map.add_overlay(@zones)
+	end
+end 
+page << @center
+page <<"destacar(#{@actual},#{@total});"
+
+
+

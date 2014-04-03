@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn_mediafranca/!svn/ver/132/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn_mediafranca/!svn/ver/1/config/initializers/inflections.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn_mediafranca/!svn/ver/1/config/initializers/session_store.rb
+END
+mongo_mapper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn_mediafranca/!svn/ver/124/config/initializers/mongo_mapper.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn_mediafranca/!svn/ver/1/config/initializers/backtrace_silencers.rb
+END
+new_rails_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn_mediafranca/!svn/ver/1/config/initializers/new_rails_defaults.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn_mediafranca/!svn/ver/1/config/initializers/mime_types.rb
+END

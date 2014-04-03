@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn_mediafranca/!svn/ver/104/db/migrate
+END
+20100627233002_create_ubications.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn_mediafranca/!svn/ver/104/db/migrate/20100627233002_create_ubications.rb
+END
+20100802045227_create_publications.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802045227_create_publications.rb
+END
+20100802045316_create_multimedias.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802045316_create_multimedias.rb
+END
+20100802050224_create_representatives.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802050224_create_representatives.rb
+END
+20100802050751_create_talks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802050751_create_talks.rb
+END
+20100611224205_create_people.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/104/db/migrate/20100611224205_create_people.rb
+END
+20100620013338_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn_mediafranca/!svn/ver/104/db/migrate/20100620013338_create_users.rb
+END
+20100802045846_create_regions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802045846_create_regions.rb
+END
+20100802045354_create_topics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802045354_create_topics.rb
+END
+20100802050201_create_senators.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802050201_create_senators.rb
+END
+20100802045829_create_citys.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802045829_create_citys.rb
+END
+20100802050129_create_districts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802050129_create_districts.rb
+END
+20100802050115_create_circumscriptions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802050115_create_circumscriptions.rb
+END
+20100802045742_create_ratings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn_mediafranca/!svn/ver/104/db/migrate/20100802045742_create_ratings.rb
+END

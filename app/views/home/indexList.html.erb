@@ -1,0 +1,90 @@
+<% content_for :contentTitle do %>
+<div id="topicBar" class="structure">
+	<div id="titleConversation" class="cf">
+		<h2>Ultimas Conversaciones</h2> 
+	</div><!-- end titleConversation -->
+	
+	<!-- <div id="searchTopic">
+		<%= form_remote_tag(:update => "contentList", :url => {:controller => :home, :action => :addFilter}) %> 
+		<input class="btnAddTopic" type="submit" value="" alt="Añadir tema"/><input name="txt" type="text" alt="Escribe un tema" value="Escribe un tema" class="searchTopic"/></div> end searchTopic --> 
+					</form>
+</div><!-- btnPopTopic -->
+<% end %>
+
+<% content_for :content do %>
+	<div id="contentTools">
+		<span id="conversationNumber" class="sans noColor small">410</span>
+		<%= link_to "Ver mapa", {:controller => "home", :action => "indexMap"}, :id => 'btnMap', :class => 'sans small linkStyle' %>
+		<ul id="order" class="right small">
+			<%=  link_to_remote "<li>relevance down</li>", :url => { :action => "seeAll4Relevance", :id => params[:id]}, :update => { :success => "subContainer"}, :html =>{:class =>"iconRelevanceUpConversation"} %>
+			<%=  link_to_remote "<li>post</li>", :url => { :action => "seeAll4Publications", :id => params[:id]}, :update => { :success => "subContainer"}, :html =>{:class =>"iconPost"} %>		
+			<%=  link_to_remote "<li>time</li>", :url => { :action => "seeAll4date", :id => params[:id]}, :update => { :success => "subContainer"}, :html =>{:class =>"iconTime"} %>
+			<li class="orderTitle">ordenar por &nbsp;</li>
+		</ul>
+	</div><!-- end contentTools --> 
+	<div id="subContainer">	
+		<div id="contentList">
+			<% for conversation in @conversations do %>
+	
+				<div class="conversation cf">
+						<ul id="indicator" class="sans xsmall greyMedium left">
+							<li><a class="iconPost"><%= conversation.total_publicaciones %></a></li>
+						</ul>
+						<div class="conversationTextBox">
+						<h4 class="noMargin"><%= link_to conversation.title, :controller => "conversations", :action => "show", :id =>conversation.id %><span class="moreInfo small sans"> Leer más</span></h4>
+						<ul id="tag" class="small">						
+							<% for t in conversation.topics %> 
+								<li><%= link_to "#{t.title}", :controller => :home, :action=>:indexList, :text=>t.title, :tipo=>"search" %></li>
+							<% end %>
+						</ul>
+					</div><!-- end div class="conversationTextBox" -->
+					<span class="xsmall">
+						<ul id="relevance">
+							<div id="relevance_<%= conversation.id %>">
+							<% if (current_user) && (conversation.ya_voto == 0 ) %>
+								<li><%=  link_to_remote conversation.relevance, {:url => { :controller => "relevance", :action => "saveRelevance", :citizen_id => current_user.id, :conversation_id => conversation.id, :tipo => "up"}}, {:id => "r_b_up_#{conversation.id}", :class => "iconRelevanceUpConversation"}  %></li>
+							<% else %>
+									<li><a href="#" class ="upVotingOn" id="r_b_up_#{conversation.id}"><%= conversation.relevance %></a></li>
+							<% end %>
+							</div>
+						</ul>
+					</span>
+			
+				</div> <!-- end class="conversation cf" -->
+			<% end %>
+		</div> <!-- end ContentsList  -->
+		<div id="contentNav" class="nav medium cf">
+
+		</div> <!-- end contentNav  -->
+	</div>
+<% end %>
+
+<% content_for :sidebar do %>
+	
+	<div id="newPublicationBox" class="sidebarBoxes">
+		<% 	if current_user %>	
+			<ul>
+				<li><%= link_to "Crear Conversación", :controller => "publications", :action => "new" %></li>
+			</ul>
+		<%else%>
+			<ul>
+				<li class="newAcount"><%= link_to t(:signup), {:controller=>"citizens", :action=>"new"}, :class =>"btnSingUp" %></li>
+			</ul>
+		<% end %>
+	</div>
+		
+		
+	<div id="popTopics" class="sidebarBoxes">
+		<span id="boxTitule" class="iconTopics"><h5>Temas Populares</h5></span>
+		<ul class="medium">
+		<% unless @t == nil %>
+			<% for t in @t %>
+				<% @t = Topic.find(t.topic_id) %>
+				<%= link_to "<li><p>#{@t.title}<span class='popIndicator right small sans'>#{t.Filas}</span></p></li>", :controller => :home, :action=>:indexList, :text=>@t.title, :tipo=>"search" %>
+			<% end %>
+		<% end %>
+		</ul>
+	</div><!-- end popTopics -->
+
+<% end %>
+

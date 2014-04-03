@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn_mediafranca/!svn/ver/131/app/views/conversations
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn_mediafranca/!svn/ver/119/app/views/conversations/index.html.erb
+END
+seeMedia.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn_mediafranca/!svn/ver/138/app/views/conversations/seeMedia.html.erb
+END
+create.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/138/app/views/conversations/create.xml.builder
+END
+search.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/138/app/views/conversations/search.xml.builder
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn_mediafranca/!svn/ver/138/app/views/conversations/show.html.erb
+END
+seeOneToOne.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn_mediafranca/!svn/ver/44/app/views/conversations/seeOneToOne.html.erb
+END
+seePersons.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn_mediafranca/!svn/ver/44/app/views/conversations/seePersons.html.erb
+END
+_barra.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn_mediafranca/!svn/ver/138/app/views/conversations/_barra.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn_mediafranca/!svn/ver/138/app/views/conversations/new.html.erb
+END
+show.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn_mediafranca/!svn/ver/138/app/views/conversations/show.xml.builder
+END
+savePoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn_mediafranca/!svn/ver/138/app/views/conversations/savePoint.rjs
+END
+createConversationWithPublication.builder
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn_mediafranca/!svn/ver/138/app/views/conversations/createConversationWithPublication.builder
+END
+_seeAll.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn_mediafranca/!svn/ver/138/app/views/conversations/_seeAll.erb
+END
+seeAll.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn_mediafranca/!svn/ver/138/app/views/conversations/seeAll.erb
+END
+searchPoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn_mediafranca/!svn/ver/136/app/views/conversations/searchPoint.rjs
+END
+setNewPoint.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn_mediafranca/!svn/ver/115/app/views/conversations/setNewPoint.rjs
+END
+create.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn_mediafranca/!svn/ver/129/app/views/conversations/create.html.erb
+END

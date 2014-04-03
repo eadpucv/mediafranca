@@ -1,0 +1,43 @@
+10
+
+dir
+135
+http://ead.pucv.cl/svn_mediafranca/app
+http://ead.pucv.cl/svn_mediafranca
+
+
+
+2011-01-18T15:52:45.502065Z
+135
+cristobal
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+7c592e29-8f90-4759-9e88-944a5018046e
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+districts
+dir
+
+views
+dir
+

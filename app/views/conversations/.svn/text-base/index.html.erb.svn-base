@@ -1,0 +1,118 @@
+<% content_for :contentTitle do %>
+<div id="titleConversation">
+	<h2>Espacios públicos de recreación en Valdivia<span class="small"><a> Editar</a></span></h2> 
+	<span class="right"> 
+		<ul id="actionsConversation">
+			<li><a class="iconVoteDown" href="#">-Voto</li>
+			<li><a class="iconVoteUp" href="#">+Voto</li>
+			<li><a class="iconSuscription medium" href="#">Suscribirse</a></li>
+		</ul>
+	</span>
+	</div><!-- end titleConversation -->
+	
+	 <div id="topicBar" class="structure">
+		<ul id="tag" class="small">
+					<li><a class="firstTag">Obras Públicas</a></li>
+					<li><a href="#">Recreación</a></li>
+					<li><a class="lasTag" href="#">Urbanismo</a></li>
+		</ul>	
+</div><!-- topicBar -->
+<% end %>
+
+<% content_for :content do %>
+	<div id="publishBox" class="cf">
+		<h3>Publica en esta conversación</h3>
+
+			<textarea rows="2" cols="55"></textarea>
+			<ul id="newTopics"></ul>
+			<div id="addMediaTools" class="cf">
+			<%= form_remote_tag(:update => "lista", :url => {:controller => :topics, :action => :addTopicToPublication}, :html => {:class => "left" }) %> 
+				<input id="topic_title" class="add" type="text" size="15" name="topic[title]" value="Añadir etiquetas" autocomplete="off" onfocus="blanc('topic_title')"  onblur="blanc('topic_title','Añadir Etiqueta')">
+				<%= submit_tag 'Añadir', :class => "btnAdd" %>
+			</form>
+			<%= observe_field 'topic_title',
+				:url => { :controller => :topics, :action => :topicSearch },
+				:frequency => 0.5,
+				:update => :resultLiveSearchTopics,
+				:with => "topic_title" 
+			%>		
+			<ul id="addMedia" class="sans xsmall">
+				<li><a class="addPhoto" href="#" title="Foto">Foto</a></li>
+				<li><a class="addVideo" href="#" title="Video">Video</a></li>
+				<li><a class="addAudio" href="#" title="Audio">Audio</a></li>
+				<li><a class="addPresentation" href="#" title="Presentación">Presentación</a></li>
+				<li><a class="addEvent" href="#" title="Evento">Evento</a></li>
+				<li><a class="addPolls" href="#" title="Encuesta">Encuesta</a></li>
+				<li><a class="addSynchat" href="#" title="Chat Sincronizado">Sync Chat</a></li>
+				<li><a class="addMapPoint" href="#" title="Ubicación">Ubicación</a></li>
+				<li><a class="addLink" href="#" title="Enlace">Enlace</a></li>
+			</ul>
+
+			<input class="btn " type="submit" value="Publicar">
+			</div><!-- end addMediaTools -->
+			<div id="resultLiveSearchTopics" class="medium "></div>
+	</div><!-- end publishBox -->
+	
+	<div id="contentTools">
+	<ul id="visualization" class="sans small">
+		<%=  link_to_remote "<li>Todos</li>", :url => { :action => "seeAll"}, :update => { :success => "subContainer"} %>
+		<%=  link_to_remote "<li>Uno a Uno</li>", :url => { :action => "seeOneToOne"}, :update => { :success => "subContainer"} %>
+		<%=  link_to_remote "<li>Personas</li>", :url => { :action => "seePersons"}, :update => { :success => "subContainer"} %>
+		<%=  link_to_remote "<li>Media</li>", :url => { :action => "seeMedia"}, :update => { :success => "subContainer"} %>		
+	</ul>
+	<ul id="order" class="right small">
+		<li><a class="iconTime" href="#">time</a></li> 
+		<li><a class="iconRelevanceDown" href="#">relevance down</a></li>
+		<li><a class="iconRelevanceUp" href="#">relevance up</a></li>				
+		<li class="orderTitle">ordenar por &nbsp;</li>
+	</ul>
+	</div><!-- end contentTools --> 
+	<div id="subContainer">
+	</div>
+<% end %>
+
+<% content_for :sidebar do %>
+<div id="mapConversation" class="sidebarBoxes">
+  					<div id="conversationMap"></div><!-- end homeMap -->
+					<script type="text/javascript">
+					showMap("conversationMap");
+					</script>
+  					</div><!-- end mapConversation -->
+  					
+  					<div id="eventConversation" class="sidebarBoxes">
+						<span id="boxTitule" class="iconEvent"><h5>Eventos</h5></span>
+						<ul>
+						<li><p class="noMargin"><span class="xmedium fecha">25/05</span><a href="#">Junta vecinal en pro de construcción de nuevas plazas<span class="moreInfo small sans"> Más información</span></a></p></li>
+						<li></a><p class="noMargin"><span class="xmedium fecha">19/05</span><a href="#">Recaudación de fondos<span class="moreInfo small sans"> Más información</span></a></p></li>
+						</ul>
+  					</div><!-- end eventConversation -->
+  					<div id="pollsConversation" class="sidebarBoxes">
+						<span id="boxTitule" class="iconPolls"><h5>Encuestas</h5></span>
+						<ul>
+							<li><p class="noMargin"><a href="#">¿Cómo juntaremos dinero?<span class="moreInfo small sans"> Responer</span></a></p></li>
+						</ul>
+  					</div><!-- end pollsConversation -->
+  					<div id="authoritiesConversation" class="sidebarBoxes">
+  						<span id="boxTitule" class="iconAuthorities"><h5>Autoridades Relacionadas</h5></span>
+
+  						<ul>
+  							<a href="#"><li><img class="avatar" src="images/avatar.png"/><p>Carlos Kuschel Silva</p><p class="sans small noMargin">Senador, X región</p></li></a>
+  							<a href="#"><li><img class="avatar" src="images/avatar.png"/><p>Camilo Escalona Medina</p><p class="sans small noMargin">Senador, X región</p></li></a>
+							<a href="#"><li><img class="avatar" src="images/avatar.png"/><p>Gabriel Ascencio</p><p class="sans small noMargin">Diputado, X región</p></li></a>
+							<a href="#"><li><img class="avatar" src="images/avatar.png"/><p>Fidel Espinoza </p><p class="sans small noMargin">Diputado, X región</p></li></a>
+						</ul>
+  					</div><!-- end authoritiesConversation -->
+  					<div id="relatedTopics" class="sidebarBoxes">
+						<span id="boxTitule" class="iconTopics"><h5>Temas Relacionados</h5></span>
+  						<ul class="medium">
+  				 			<a href="#"><li><p>Vivienda<span class="popIndicator right small sans">324</span></p></li></a>
+  				 			<a href="#"><li><p>Catástrofes<span class="popIndicator right small sans">237</span></p></li></a>
+  				 			<a href="#"><li><p>Laborales<span class="popIndicator right small sans">124</span></p></li></a>
+  				 			<a href="#"><li><p>Infraestructura Pública<span class="popIndicator right small sans">98</span></p></li></a>
+  						</ul>
+  					</div><!-- end relatedTopics -->
+
+<% end %>
+
+<% content_for :contentTitle do %>
+<% end %>

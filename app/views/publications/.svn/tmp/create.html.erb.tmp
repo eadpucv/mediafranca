@@ -1,0 +1,36 @@
+<% if @conversation.nil? %>
+	No se encontraron Convesaciones... 	<%= link_to_remote "Crear una nueva conversaci—n", :url => {:controller => "conversations",:action => "new",:p_id =>@publication._id}, :update => { :success => "publishBox"},:class =>"btn"  %>
+<% else %>
+
+<div id="contentList">
+	<% for c in @conversation %>
+		<% for x in c %>
+			<div class="conversation cf">
+				<ul id="indicator" class="sans xsmall greyMedium left"><li><a class="iconPost">12</a></li></ul>
+				<h4 class="noMargin"><a href="#"><%= x.title %><span class="moreInfo small sans">Previsualizar</span></a> <%= link_to ("Conectar", :class => "btn"), :controller => "publications", :action => "anclar2conversation", :id_p =>@publication._id, :id_c => x._id %></h4>
+				<ul id="tag" class="small">
+					<%
+						@publications = Publication.all(:conditions => {"conversation_id" => x._id})						 
+						for y in @publications
+							for t in y.topics
+								unless @t.include?(t.title) 
+									@t << t.title
+								end 
+							end
+						end  
+					%>
+					<% for z in @t %>
+						<li><a href="#"><%= z %></a></li>
+					<% end %>
+				</ul>				
+				<span id="timer" class="sans xsmall greyMedium"><b>1 minutos atrás</b></span>
+				<span class="right sans xsmall"><ul id="relevance"><a href="#" class="iconRelevanceUp"><li>23</li></a><a href="#" class="iconRelevanceDown"><li>1333</li></a></ul></span>
+			</div>	
+		<% end %>
+	<% end %> 
+</div><!-- end contentList -->
+<% end %>
+
+
+
+	<%= link_to_remote ("No conectar, Crear una nueva conversación", :class => "btn") :url => {:controller => "conversations",:action => "new",:p_id =>@publication._id}, :update => { :success => "publishBox"} %>

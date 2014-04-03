@@ -1,0 +1,56 @@
+// Place your application-specific JavaScript functions and classes here
+// This file is automatically included by javascript_include_tag :defaults
+function showMap(div){
+
+	var cloudmade = new CM.Tiles.CloudMade.Web({key: 'f227f541a93b46a884a3c73a516a9895', styleId:19780});
+	var map = new CM.Map(div, cloudmade);
+	var icon = new CM.Icon();
+		icon.image  = "images/pin2.png";
+		icon.shadow = "images/pinshadow.png";
+		icon.shadowSize =new CM.Size(36,27);
+		icon.iconSize = new CM.Size(30, 30);
+		icon.iconAnchor = new CM.Point(16, 32);
+		
+	
+	map.addControl(new CM.LargeMapControl());
+	map.addControl(new CM.ScaleControl());	
+	
+	var markers = [];
+	
+	var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 70});
+	clusterer.addMarkers(markers);
+}
+
+function blanc(div,txt) {
+	document.getElementById("resultLiveSearchTopics").style.display ="inline";
+	if (txt == null)
+		document.getElementById(div).value="";
+	else
+		if (document.getElementById(div).value == "")
+			document.getElementById(div).value=txt;
+		
+	
+<<<<<<< .mine
+}
+
+function deleteTag(id)
+{
+	var tag 	= "topic_input_"+id
+	var input 	= "topic_li_"+id
+	$(tag).hide();
+	$(input).hide();
+
+
+}=======
+}
+
+function deleteTag(id)
+{
+	var tag 	= "topic_input_"+id
+	var input 	= "topic_li_"+id
+	$(tag).hide();
+	$(input).hide();
+
+
+}
+>>>>>>> .r80

@@ -1,0 +1,105 @@
+<% content_for :contentTitle do %>
+<div id="topicBar" class="structure"><span id="btnMap" class="sans small">Ver mapa</span><span id="conversationNumber" class="sans noColor small">410</span>
+<div id="searchTopic">
+				<%= form_remote_tag(:update => "contentList", :url => {:controller => :home, :action => :addFilter}) %> 
+					<input class="btnAddTopic" type="submit" value="" alt="Añadir tema"/><input name="txt" type="text" alt="Escribe un tema" value="Escribe un tema" class="searchTopic"/></div> <!-- end searchTopic -->
+				</form>
+</div><!-- btnPopTopic -->
+<% end %>
+
+<% content_for :content do %>
+<div id="contentTools">
+	<ul id="order" class="right small"> 
+		<li><a class="iconRelevanceDown" href="#">relevance down</a></li>
+		<li><a class="iconRelevanceUp" href="#">relevance up</a></li>
+		<li><a class="iconPost" href="#">post</a></li>
+		<li><a class="iconTime" href="#">time</a></li>				
+		<li class="orderTitle">ordenar por &nbsp;</li>
+	</ul>
+	</div><!-- end contentTools --> 
+	
+	<div id="contentList">
+		<% for publication in @listPublicaciones do %>
+		<div class="conversation cf">
+			<ul id="indicator" class="sans xsmall greyMedium left">
+				<li><a class="iconPost">12</a></li>
+			</ul>
+			<h4 class="noMargin"><a href="#"><%= publication.title %><span class="moreInfo small sans"> Leer más</span></a></h4>
+			<ul id="tag" class="small">
+<<<<<<< .mine
+			<% total = publication.topics.length %>
+			<% @i = 1 %>
+			<% for t in publication.topics %>
+				<% if @i == 1 %>
+					<li><a class="firstTag"><%= t.title %></a></li>
+				<% else %>
+					<% if @i == total %>
+						<li><a class="lastTag"><%= t.title %></a></li>
+					<% else %>	
+						<li><a><%= t %></a></li>
+					<% end %>
+				<% end %>
+				<% @i = @i + 1 %> 
+			<% end %>
+=======
+			<% total = publication.topic_ids.length %>
+			<% @i = 1 %>
+			<% for t in publication.topic_ids %>
+				<% if @i == 1 %>
+					<li><a class="firstTag"><%= t %></a></li>
+				<% else %>
+					<% if @i == total %>
+						<li><a class="lastTag"><%= t %></a></li>
+					<% else %>	
+						<li><a><%= t %></a></li>
+					<% end %>
+				<% end %>
+				<% @i = @i + 1 %> 
+			<% end %>
+>>>>>>> .r89
+			</ul>
+
+			<span id="timer" class="sans xsmall greyMedium"><b>1 minutos atrás</b></span>
+			<span class="right sans xsmall"><ul id="relevance"><a href="#" class="iconRelevanceUp"><li>23</li></a><a href="#" class="iconRelevanceDown"><li>1333</li></a></ul></span>
+		</div>
+		<% end %>
+	</div> <!-- end ContentsList  -->
+<div id="contentNav" class="nav medium cf">
+	<span class="btnNext">Anteriores</span>
+	<span class="btnPrevious">Siguientes</span>						
+</div> <!-- end contentNav  -->
+
+<% end %>
+
+<% content_for :sidebar do %>
+<div id="popTopics" class="sidebarBoxes">
+<span id="boxTitule" class="iconTopics"><h5>Temas Populares</h5></span>
+<ul class="medium">
+	<a href="#"><li><p>Vivienda<span class="popIndicator right small sans">324</span></p></li></a>
+	<a href="#"><li><p>Catástrofes<span class="popIndicator right small sans">237</span></p></li></a>
+	<a href="#"><li><p>Laborales<span class="popIndicator right small sans">124</span></p></li></a>
+	<a href="#"><li><p>Infraestructura Pública<span class="popIndicator right small sans">98</span></p></li></a>
+	<a href="#"><li><p>Comercio<span class="popIndicator right small sans">92</span></p></li></a>
+	<a href="#"><li><p>Violencia<span class="popIndicator right small sans">76</span></p></li></a>
+	<a href="#"><li><p>Urbanismo<span class="popIndicator right small sans">54</span></p></li></a>
+	<a href="#"><li><p>Orden y limpieza<span class="popIndicator right small sans">51</span></p></li></a>
+</ul>
+</div><!-- end popTopics -->
+<div id="people" class="cf sidebarBoxes">
+<span id="boxTitule" class="iconPeople "><h5>Personas</h5></span>
+	<ul class="medium">
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+	</ul>
+</div> <!-- end people -->
+<% end %>
+

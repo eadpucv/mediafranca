@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//ES"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+	<head>
+		<title>MediaFranca v1</title>
+		<%= stylesheet_link_tag 'screenstyle' %>
+		<%= stylesheet_link_tag 'prototip' %>
+
+		<%= javascript_include_tag "sample-points" %>
+		<%= javascript_include_tag "prototype" %>
+		<%= javascript_include_tag "scriptaculous" %>
+		<%= javascript_include_tag "application" %>
+
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+	<div id="wrapper">
+		<div id="loginBox" class="cf" <% unless params[:error] %>style="display: none"<% end %> >
+			<div class="structure">
+			<%if params[:error] %><div id="loginError"> Error en usuario o password, Intentalo Nuevamente </div><br /><% end %>
+			<%= form_tag(:controller => "sessions", :action => "create", :method=>"POST") %>				
+				<input type="hidden" name="url" value ="<%= request.request_uri %>">
+				<ul>	
+					<li class="text">Correo electrónico <%= text_field_tag :login, params[:login] %></li>
+					<li class="text">Contraseña <%= password_field_tag :password %></li>
+					<li><%= submit_tag "Entrar", :class => "btnIn" %></li>
+					<li class="cuestion"><a href="#">¿No recuerdas alguno de tus datos?</a></li>
+					<li>|</li>
+					<li><b><%= link_to_remote "Cerrar", {:url => {:controller=>"sessions", :action=>"hideForm"}}, :title=>"cerrar" %></b></li>
+				</ul>
+			</form>
+			</div>
+		</div> <!-- end loginBox -->
+		<div id="headerWrapper" class="cf">					
+  			<div id="header" class="cf structure">
+  				<div id="logo">
+  				<% if action_name == 'indexMap' %>
+  					<%= link_to image_tag ("logoMF.png", :class => "logo" ),{:controller=>"home", :action=>"indexList"}%> 
+  				<% else %>
+  					<%= link_to image_tag ("logoMF.png", :class => "logo" ),{:controller=>"home", :action=>"indexMap"}%> 
+  				<% end %>
+  				</div><!-- end logo -->
+  				<!-- <span id="logoDescription" class="sans medium bold greyMedium">| Plataforma para la interacci—n c’vica</span> end logodescription -->
+  				
+  				<!--<div id="menuTop">
+  					
+
+	  				<div id="loginMenu">
+					</div>
+					
+  				</div>end menuTop -->
+  				
+  					
+  				<div id="mainMenu" class="cf">
+  				<div id="userBar">
+		  				<ul>
+		  					<li><span id="search"><input type="text" alt="buscador" class="search text"/><input class="btnSearch" type="submit" value="" alt="boton buscador"/></span><!-- end search --></li>
+		  					<% 	if current_user %>
+		  					<li class="user">
+							<%=  link_to "#{current_user.name} #{current_user.lastname}", {:controller => "citizens", :action =>"edit", :id => current_user.id}, :class => "btnSingUp" %> </li>
+							<li class="greyMedium">|</li>
+							<li class="user"><%=  link_to "Salir", logout_url, :class => "btnLogin" %></li>
+						<% else %>
+							<li><%= link_to_remote "Ingresar", {:url => {:controller=>"sessions", :action=>"showForm"}}, :class => "btnLogin", :title=>"Accede a tu cuenta desde aquí" %></li>
+						<% end %>
+		  				</ul>
+		  			</div><!-- end userBar -->
+					
+	  					<div id="tabMenu">
+		  					<div id="holder"> 
+								<ul>
+									<li><%= link_to "Inicio", :controller => "home", :action => "indexList"%></li>
+								 <% 	if current_user %>
+									<li><%= link_to "Suscripciones", :controller => "suscriptions", :action => "index"%></li>
+			  						<li><%= link_to "Contactos", :controller => "citizens", :action => "contacts"%></li>
+			  					<% end %>
+								</ul> 
+							</div> <!-- end holder --> 
+			  			</div><!-- end tabMenu-->
+			  		
+			  		
+  				</div><!-- end mainMenu -->
+  				
+  				
+  			</div><!-- end header -->
+	  		<div id="contentTitle">
+				<%= yield :contentTitle %>
+			</div><!-- end contentTitle  --> 
+  		</div><!-- end headerWrapper -->
+  			  				  			
+		<div id="notificacion"></div><!-- end notification -->
+		<% if (controller_name == "home") && (action_name == "indexMap") %>
+			<div id="homeTopPost" class="cf">
+				<%= yield :homeTopPost %>					
+			</div><!-- end content  --> 
+		<% else %>
+			<div id="containerWrapper" class="cf" >
+				<div id="container" class="cf structure" >
+					<div id="content" class="<% if action_name == "indexList" %> contentList <% else %> cf <% end %>">
+						<%= yield :content %>					
+					</div><!-- end content -->
+					<div id="sidebar" class="<% if action_name == "indexList" %> hl <% else %> <% end %> cf" >
+						<%= yield :sidebar %>
+					</div><!-- end sidebar -->
+		  		</div><!-- end container -->
+			</div><!-- end containerWrapper -->
+		<% end %>
+       	<div id="footer">
+  			<ul class="footerMenu">
+  					<li><a href="#">Acerca de MediaFranca</a></li>
+  					<li> | </li>
+  					<li><a href="#">Términos y condiciones</a></li>
+  					<li> | </li>
+  					<li><a href="#">¿Necesitas ayuda?</a></li>
+  					<li> | </li>
+  					<li><a href="#">Contacto</a></li>
+  					<li> | </li>
+  					<li class="sans">MediaFranca.cl 2009-2010</li>
+  					<li><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><%= image_tag "cc.png", :alt => 'Attribution-NonCommercial-ShareAlike', :class => "cc", :title =>"Attribution-NonCommercial-ShareAlike" %></a></li>
+  			</ul>
+  			<p class="sans"></p>
+  		</div><!-- end footer -->
+  		</div><!-- end wrapper -->
+  		<div id="map" class="full noMargin noPaddign">
+				<%= yield :map %>
+		</div><!-- end map -->
+	</body>
+</html>
+

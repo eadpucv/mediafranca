@@ -1,0 +1,1 @@
+page << "new Effect.BlindUp ('loginBox',{ duration: 0.2 })"

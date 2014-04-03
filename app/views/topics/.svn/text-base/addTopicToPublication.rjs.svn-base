@@ -1,0 +1,7 @@
+page.replace_html :resultLiveSearchTopics," "
+page << "var nodes = document.getElementById(\"newTopics\").childNodes;"
+page << "if (nodes[0] == null){"
+	page.insert_html :bottom ,'newTopics',"<input id='topic_input_#{@t}' type='hidden' name='topics[]' value='#{@t}'><li id='topic_li_#{@topic_id}' class='firstTag'>#{@t} <span id='delete'><a class='sans xsmall' href='javascript:deleteTag(\"#{@topic_id}\")' title='Quitar'>Quitar</a></span></li>"
+page << "} else { "
+	page.insert_html :bottom ,'newTopics',"<input id='topic_input_#{@t}' type='hidden' name='topics[]' value='#{@t}'><li id='topic_li_#{@topic_id}'>#{@t} <span id='delete'><a class='sans xsmall' href='javascript:deleteTag(\"#{@topic_id}\")' title='Quitar'>Quitar</a></span></li>"
+page << "}"

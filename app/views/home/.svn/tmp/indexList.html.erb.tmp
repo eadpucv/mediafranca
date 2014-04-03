@@ -1,0 +1,145 @@
+<% content_for :contentTitle do %>
+<div id="topicBar"><span id="btnMap" class="sans small">Ver mapa</span><span id="conversationNumber" class="sans noColor small">410</span>
+<div id="searchTopic"><input class="btnAddTopic" type="submit" value="" alt="Añadir tema"/><input type="text" alt="Escribe un tema" value="Escribe un tema" class="searchTopic"/></div> <!-- end searchTopic -->
+</div><!-- btnPopTopic -->
+<% end %>
+
+<% content_for :content do %>
+<div id="contentTools">
+	<ul id="order" class="right metaText">
+		<li><a class="iconTime" href="#">time</a></li> 
+		<li><a class="iconPin" href="#">pin</a></li>
+		<li><a class="iconRelevanceDown" href="#">relevance down</a></li>
+		<li><a class="iconRelevanceUp" href="#">relevance up</a></li>
+		<li><a class="iconPost" href="#">post</a></li>					
+		<li class="metaText orderTitle">ordenar por &nbsp;</li>
+	</ul>
+	</div><!-- end contentTools --> 
+	
+	<div id="contentList">
+		<div class="conversation cf">
+			<h4 class="noMargin"><a href="#">Violencia intrafamiliar barrio Miraflores Viña del mar<span class="moreInfo small sans"> Leer más</span></a></h4> <span class="right sans xsmall"><ul id="relevance"><li><a class="iconRelevanceUp">23</a></li><li><a class="iconRelevanceDown">12</a></li></ul></span>
+			<ul id="tag" class="sans small">
+				<li><a class="firstTag">Seguridad</a></li>
+				<li><a href="#">Delitos</a></li>
+				<li><a href="#">Crimen</a></li>
+				<li><a href="#">Delincuencia</a></li>
+				<li><a class="lasTag" href="#">Violencia intrafamiliar</a></li>
+			</ul>
+			<ul id="indicator" class="sans xsmall greyMedium right">
+				<li><a class="iconPost">127</a></li>
+				<li><a class="iconPin">8</a></li>
+				<li><a class="iconTime">1 minutos atras</a></li>
+			</ul>
+		</div>
+		
+		<div class="conversation cf">
+			<h4 class="noMargin"><a href="#">Movimiento por infraestructura para bicicletas, Con-Con<span class="moreInfo small sans"> Leer más</span></a></h4>
+			<ul id="tag" class="sans small">
+				<li><a class="firstTag">Deportes</a></li>
+				<li><a href="#">Ciclismo</a></li>
+				<li><a class="lasTag" href="#">Movimientos</a></li>
+			</ul>
+			<ul id="indicator" class="sans xsmall greyMedium right">
+				<li><a class="iconPost">127</a></li>
+				<li><a class="iconPin">8</a></li>
+				<li><a class="iconTime">1 minutos atras</a></li>
+			</ul>
+		</div>
+		
+		<div class="conversation cf">
+			<h4 class="noMargin"><a href="#">Espacios públicos de recreación en Valdivia<span class="moreInfo small sans"> Leer más</span></a></h4>
+			<ul id="tag" class="sans small">
+				<li><a class="firstTag">Obras Públicas</a></li>
+				<li><a href="#">Recreación</a></li>
+				<li><a class="lasTag" href="#">Urbanismo</a></li>
+			</ul>
+			<ul id="indicator" class="sans xsmall greyMedium right">
+				<li><a class="iconPost">127</a></li>
+				<li><a class="iconPin">8</a></li>
+				<li><a class="iconTime">1 minutos atras</a></li>
+			</ul>
+		</div>
+		
+		<div class="conversation cf">
+			<h4 class="noMargin"><a href="#">Soluciones habitacionales pos-terremoto<span class="moreInfo small sans"> Leer más</span></a></h4>
+			<ul id="tag" class="sans small">
+				<li><a class="firstTag">Obras Públicas</a></li>
+				<li><a href="#">Catástrofes</a></li>
+				<li><a class="lasTag" href="#">Urbanismo</a></li>
+			</ul>
+			<ul id="indicator" class="sans xsmall greyMedium right">
+				<li><a class="iconPost">127</a></li>
+				<li><a class="iconPin">8</a></li>
+				<li><a class="iconTime">2 minutos atras</a></li>
+			</ul>
+		</div>
+		
+		<div class="conversation cf">
+			<h4 class="noMargin"><a href="#">Sobre la seguridad y los robos en Viña del Mar<span class="moreInfo small sans"> Leer más</span></a></h4>
+			<ul id="tag" class="sans small">
+				<li><a class="firstTag">Seguridad</a></li>
+				<li><a href="#">Delincuencia</a></li>
+				<li><a href="#">Crimen</a></li>
+				<li><a class="lasTag" href="#">Delitos</a></li>
+			</ul>
+			<ul id="indicator" class="sans xsmall greyMedium right">
+				<li><a class="iconPost">127</a></li>
+				<li><a class="iconPin">8</a></li>
+				<li><a class="iconTime">4 minutos atras</a></li>
+			</ul>
+		</div>
+		
+		<div class="conversation cf">
+			<h4 class="noMargin"><a href="#">Limpieza y mantención de espacios públicos en Iquique<span class="moreInfo small sans"> Leer más</span></a></h4>
+			<ul id="tag" class="sans small">
+				<li><a class="firstTag">Espacios públicos</a></li>
+				<li><a href="#">Ornato</a></li>
+				<li><a class="lasTag" href="#">Urbanismo</a></li>
+			</ul>
+			<ul id="indicator" class="sans xsmall greyMedium right">
+				<li><a class="iconPost">127</a></li>
+				<li><a class="iconPin">8</a></li>
+				<li><a class="iconTime">4 minutos atras</a></li>
+			</ul>
+		</div>
+</div> <!-- end ContentsList  -->
+<div id="contentNav" class="nav medium cf">
+	<span class="btnNext left">Anteriores</span>
+	<span class="btnPrevious right ">Siguientes</span>						
+</div> <!-- end contentNav  -->
+
+<% end %>
+
+<% content_for :sidebar do %>
+<div id="popTopics">
+<h5 class="boxTitule">Temas Populares</h5>
+<ul class="medium">
+	<a href="#"><li><p>Vivienda</p><span class="popIndicator right small sans">324</span></li></a>
+	<a href="#"><li><p>Catástrofes</p><span class="popIndicator right small sans">237</span></li></a>
+	<a href="#"><li><p>Laborales</p><span class="popIndicator right small sans">124</span></li></a>
+	<a href="#"><li><p>Infraestructura Pública</p><span class="popIndicator right small sans">98</span></li></a>
+	<a href="#"><li><p>Comercio</p><span class="popIndicator right small sans">92</span></li></a>
+	<a href="#"><li><p>Violencia</p><span class="popIndicator right small sans">76</span></li></a>
+	<a href="#"><li><p>Urbanismo</p><span class="popIndicator right small sans">54</span></li></a>
+	<a href="#"><li><p>Orden y limpieza</p><span class="popIndicator right small sans">51</span></li></a>
+</ul>
+</div><!-- end popTopics -->
+<div id="people" class="cf">
+	<h5 class="boxTitule">Personas</h5>
+	<ul class="medium">
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+		<a href="#"><li><img class="avatar" src="images/avatar.png"/></li></a>
+	</ul>
+</div> <!-- end people -->
+<% end %>
+

@@ -1,0 +1,6 @@
+<div id="resultado"></div>
+<%= form_tag(:controller => :conversations, :action => :createFromForm) %>
+		<input type="hidden" size="15" name="conversation[first_publication]" value="<%= @p_id %>">
+		<input type="hidden" size="15" name="conversation[citizen_id]" value="<%= current_user.id %>">
+		<input type="text" size="15" name="conversation[title]" autocomplete="off" ><%= submit_tag 'Guardar Conversacion' %>
+</form>

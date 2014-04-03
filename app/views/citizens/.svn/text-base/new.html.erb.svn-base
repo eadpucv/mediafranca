@@ -1,0 +1,23 @@
+<% content_for :singUpNew do %>
+
+	<div id="newAccount" class="cf">
+	<div id="logo"><a href="#"><%= image_tag "logoMF.png", :class =>"logo" %></a></div><!-- end logo --> 
+	<span class="titleSignUp"><b>Crea una nueva cuenta</b></span>
+	<% title "Sign up" %>
+  	<% form_for :citizen, :url => { :action => "create" } do |f| %>
+	<div class="notification"><p><%= f.error_messages %></p></div>
+	<ul>
+	  <li><p>Coreo Electrónico</p><%= f.text_field :email, :class => "singUp text", :value => "ej: tucorreo@mediafranca.cl" %></li>
+	  <li><p><%= f.label :name, "Nombres" %></p><%= f.text_field :name, :class => "singUp text", :value => "ej: María Antonia" %></li>
+	  <li><p><%= f.label :lastname, "Apellidos" %></p><%= f.text_field :lastname, :class => "singUp text", :value => "ej: Andrade Vilches" %></li>
+	  <li><p><%= f.label :password, "Contraseña" %></p><%= f.password_field :password, :class => "singUp text", :value => "*****" %></li>
+	  <li><p><%= f.label :password_confirmation, "Confirmar Contraseña" %></p><%= f.password_field :password_confirmation, :class => "singUp text", :value => "" %></li>
+	  <li><p><input type="checkbox"> Aceptar <%= link_to_function ("Terminos y condiciones") do |page| page.visual_effect(:toggle_blind, 'condicion', :duration => 0.5)   end %>.</p></li>
+	  <li id="condicion" style="display:none;">
+	  <p>texto de terminos>/p>
+	  </li>
+	  <li><input type="submit" value="Registrarse" alt="Registrarse" class="btn right regOk"></b></li>
+	 </ul>
+	<% end %>
+	</div>
+<% end %>

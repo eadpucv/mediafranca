@@ -1,0 +1,2 @@
+page.insert_html :bottom ,'newUbications',"<input type='hidden' name='positions[]' value='#{@coordenadas}'>"
+page.insert_html :bottom ,'adressAdded',"<ul id='#{@id}_ul'><li class='adressAdded'><p><span class='iconAdress'></span>#{@dir}</p></li></ul>"

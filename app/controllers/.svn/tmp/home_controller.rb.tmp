@@ -1,0 +1,13 @@
+class HomeController < ApplicationController
+	def indexMapa 
+	
+	end 
+<<<<<<< .mine
+	def indexMapa
+	 
+=======
+	def indexList
+	
+>>>>>>> .r13
+	end
+end

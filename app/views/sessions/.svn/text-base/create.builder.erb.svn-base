@@ -1,0 +1,5 @@
+<% if @citizen.blank? %>
+	<span class="loginError error">Ups! nombre de usuario o contrase&ntilde;a incorrecta, por favor verificar.</span>
+<% else %>
+	<span class="login "><%= t(:currentUser) %> <b><%=  link_to "#{current_user.name} #{current_user.lastname}", :controller => "citizens", :action =>"edit", :id => current_user.id %></b> &nbsp; | &nbsp; <%=  link_to "Salir", logout_url %> &nbsp; </span>
+<% end %>
