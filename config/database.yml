@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
-  database: ead_mediafranca
+  database: mediafranca
   username: root
   password: 1dvuvvdu
   host: localhost
@@ -8,7 +8,7 @@ development:
   encoding: utf8
 test:
   adapter: mysql2
-  database: ead_mediafranca
+  database: mediafranca
   username: root
   password: 1dvuvvdu
   host: localhost
@@ -16,7 +16,7 @@ test:
   encoding: utf8
 production:
   adapter: mysql2
-  database: ead_mediafranca
+  database: mediafranca
   username: root
   password: 1dvuvvdu
   host: localhost

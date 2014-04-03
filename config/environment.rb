@@ -7,7 +7,7 @@ RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 require 'paginator'
 
-require 'geokit'
+# require 'geokit'
 #require 'geokit-rails'
 
 
@@ -30,10 +30,10 @@ Rails::Initializer.run do |config|
 
 
 	# config.gem "mongo_mapper"
-	config.gem "geokit"
-	#config.gem "geokit-rails"
-	#config.gem "andre-geokit", :lib=> "geokit", :source => "http://gems.github.com" 
-	#config.gem "geokit-rails"
+	# config.gem "geokit"
+	# config.gem "geokit-rails"
+	# config.gem "andre-geokit", :lib=> "geokit", :source => "http://gems.github.com" 
+	# config.gem "geokit-rails"
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
   #config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
