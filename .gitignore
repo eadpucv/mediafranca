@@ -1,0 +1,9 @@
+# Log and Temporal Files
+log/*
+tmp/*
+
+# OSX
+*/.DS_Store
+
+# Other files
+config/database.yml
